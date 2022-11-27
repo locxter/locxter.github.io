@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            The state of fractional scaling on Linux | locxter.github.io
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="locxter">
+        <meta name="description" content="This is locxter's small space on the web.">
+        <link rel="stylesheet" href="../styles/dark.min.css">
+    </head>
+    <body>
+        <header>
+            <h1>
+                locxter.github.io
+            </h1>
+            <nav>
+                <a href="../index.html">
+                    Home
+                </a>
+                <a href="../articles.html">
+                    Articles
+                </a>
+                <a href="../portfolio.html">
+                    Portfolio
+                </a>
+                <a href="../about-me.html">
+                    About me
+                </a>
+            </nav>
+        </header>
+        <main>
+            <h2>
+                The state of fractional scaling on Linux
+            </h2>
+            <h3>
+                2022-11-27
+            </h3>
+            <p>
+                After using a Thinkpad X250 as my primary laptop for over 1.5 years, I was looking for a Thinkpad X1 Yoga as a thinner and stylus-enabled placement back in June. Eventually, I found a promising offer and pulled the trigger. What I did not consider though was the extremely high DPI of the display (1440p on a 14 inch screen) and therefore the need to use fractional scaling.
+            </p>
+            <p>
+                You may think that this is no big deal as it works somewhat decently on Windows as well as MacOS and therefore will probably also be fine on Linux, but your are
+                <strong>
+                    just wrong
+                </strong>
+                . In fact, fractional scaling is one of the very things on Linux that are so bad that they could drive me back to Windows, if I would be dependent on them. So lets take a deeper look...
+            </p>
+            <p>
+                Obviously, the first thing to take into account is the desktop environment (DE) you are running as all of them handle things a bit differently. Sadly, this is also the point where most of them are out the game, because they simply do not support fractional scaling to any acceptable extent. For tiling windows managers this is probably not suprising, but I was shocked to find out that LXQT, Mate, XFCE and GNOME
+                <strong>
+                    all lack this feature
+                </strong>
+                (or atleast a usable implementation) too.
+            </p>
+            <p>
+                Granted, there is a fix for GNOME to enable fractional scaling, it is implemented in Ubuntu by default and also used by Cinnamon, but is has some major flaws. The working principle is to always render at a multiple of actual screen resolution and then downscale to the desired factor with some clever algorithms that make sure everything stays sharp. This is the same way MacOS does it, but the Linux implementation is far worse. It not only uses a lot of processing power shortening the battery life, but also introduces unbearable tearing when the screen content rapidly changes (for example when playing a video) or a even when a window gets drag around.
+            </p>
+            <p>
+                This only leaves us with
+                <strong>
+                    KDE Plasma
+                </strong>
+                to feature decent fractional scaling out the box. And although it certainly is far from perfect, it is the only one I could see me using! But I am so used to GTK-based desktops that for me the final solution was to just stick to the default screen resolution and live with small text/UI elements. I know that this is kinda sad, but honestly I am a defeated man in this regard and atleast I get a bit more of usable screen real estate...
+            </p>
+            <script src="https://giscus.app/client.js" data-repo="locxter/locxter.github.io" data-repo-id="R_kgDOIeICfw" data-category="Comments" data-category-id="DIC_kwDOIeICf84CSqm1" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+            </script>
+        </main>
+        <footer>
+            <p>
+                2022 locxter
+            </p>
+        </footer>
+    </body>
+</html>
