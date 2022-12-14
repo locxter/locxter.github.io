@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Fixing the Arduino IDE on Ubuntu 20.04/22.04 | locxter.github.io</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="locxter">
+        <meta name="description" content="This is locxter's small space on the web.">
+        <link rel="stylesheet" href="../styles/dark.min.css">
+    </head>
+    <body>
+        <header>
+            <h1>locxter.github.io</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Fixing the Arduino IDE on Ubuntu 20.04/22.04</h2>
+            <h3>2022-12-14</h3>
+            <p>When you try to install the Arduino IDE on Ubuntu 20.04/22.04 or one of its derivatives via the default apt repositories, you won't get past the loading screen. This has to do with missing dependencies for serial communcating. Luckily enough, you can fix this issue rather easily...</p>
+            <p>Simply follow these steps:</p>
+            <ul>
+                <li>
+                    Install the needed tools with
+                    <code>sudo apt install libserialport0 patchelf</code>
+                    .
+                </li>
+                <li>
+                    Patch the dependencies with
+                    <code>sudo patchelf --add-needed libserialport.so.0 /usr/lib/x86_64-linux-gnu/liblistSerialsj.so.1.4.0</code>
+                    .
+                </li>
+                <li>
+                    (Optional) Add your user to the necessary groups with
+                    <code>sudo usermod -a -G dialout $USER && sudo usermod -a -G tty $USER</code>
+                    .
+                </li>
+            </ul>
+            <p>That is it, enjoy your working Arduino IDE and thank me later...</p>
+            <script src="https://giscus.app/client.js" data-repo="locxter/locxter.github.io" data-repo-id="R_kgDOIeICfw" data-category="Comments" data-category-id="DIC_kwDOIeICf84CSqm1" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
+        </main>
+        <footer>
+            <p>2022 locxter</p>
+        </footer>
+    </body>
+</html>
