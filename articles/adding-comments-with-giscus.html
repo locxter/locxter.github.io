@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>
-            Adding comments with giscus | locxter.github.io
-        </title>
+        <title>Adding comments with giscus | locxter.github.io</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="locxter">
@@ -12,112 +10,83 @@
     </head>
     <body>
         <header>
-            <h1>
-                locxter.github.io
-            </h1>
+            <h1>locxter.github.io</h1>
             <nav>
-                <a href="../index.html">
-                    Home
-                </a>
-                <a href="../articles.html">
-                    Articles
-                </a>
-                <a href="../portfolio.html">
-                    Portfolio
-                </a>
-                <a href="../about-me.html">
-                    About me
-                </a>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
             </nav>
         </header>
         <main>
-            <h2>
-                Adding comments with giscus
-            </h2>
-            <h3>
-                2022-11-20
-            </h3>
+            <h2>Adding comments with giscus</h2>
+            <h3>2022-11-20</h3>
             <p>
                 I am a huge fan of the KISS principle, which is also the reason why I write this blog in plain HTMl without even using one of the excellent static site generators like
-                <a href="https://gohugo.io/">
-                    Hugo
-                </a>
+                <a href="https://gohugo.io/">Hugo</a>
                 . However, I feel like having comments on a blog is a non-debatable requirement. Therefore, I searched a bit for a fitting solution, found giscus and now want to enable you to use it as well.
             </p>
             <p>
                 Inspired by the very popular
-                <a href="https://utteranc.es/">
-                    utterances
-                </a>
+                <a href="https://utteranc.es/">utterances</a>
                 , which uses GitHub Issues to host comments on static sites like this one,
-                <a href="https://giscus.app/">
-                    giscus
-                </a>
+                <a href="https://giscus.app/">giscus</a>
                 is based an the newer GitHub Discussion system. To be clear:
-                <strong>
-                    Both are fantastic projects!
-                </strong>
+                <strong>Both are fantastic projects!</strong>
                 But I think that giscus uses a better fitting and more appropriate implementation and that is why I personally chose it over utterances.
             </p>
-            <p>
-                In order to use it yourself, you have to meet several requirements though:
-            </p>
+            <p>In order to use it yourself, you have to meet several requirements though:</p>
             <ol>
-                <li>
-                    You have a GitHub account and a public repository to store the comments in.
-                </li>
+                <li>You have a GitHub account and a public repository to store the comments in.</li>
                 <li>
                     You installed the giscus app on your GitHub account.
-                    <a href="https://github.com/apps/giscus">
-                        Here
-                    </a>
+                    <a href="https://github.com/apps/giscus">Here</a>
                     is the link to it.
                 </li>
                 <li>
                     You enabled the Discussions feature for the desired repository.
-                    <a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository">
-                        Here
-                    </a>
+                    <a href="https://docs.github.com/en/github/administering-a-repository/managing-repository-settings/enabling-or-disabling-github-discussions-for-a-repository">Here</a>
                     is how to do that.
                 </li>
             </ol>
             <p>
                 If that is all set, you can head over to the
-                <a href="https://giscus.app/">
-                    giscus site
-                </a>
+                <a href="https://giscus.app/">giscus site</a>
                 and configure it to your liking. After filling out the bare minimum fields like the language and repository to use, I personally recommend to do several other tweaks:
             </p>
             <ol>
                 <li>
-                    Change the Discussion mapping to "Discussion title contains page title".
+                    Change the Discussion mapping to
+                    <code>Discussion title contains page title</code>
+                    .
                 </li>
                 <li>
-                    Enable "Use strict title matching" to avoid mismatches.
+                    Enable
+                    <code>Use strict title matching</code>
+                    to avoid mismatches.
+                </li>
+                <li>Create a special Discussion category for comments and select it.</li>
+                <li>
+                    Enable
+                    <code>Place the comment box above the comments</code>
+                    for easier usage.
                 </li>
                 <li>
-                    Create a special Discussion category for comments and select it.
+                    Enable
+                    <code>Load the comments lazily</code>
+                    for better loading times, especially if there are many comments.
                 </li>
                 <li>
-                    Enable "Place the comment box above the comments" for easier usage.
-                </li>
-                <li>
-                    Enable "Load the comments lazily" for better loading times, especially if there are many comments.
-                </li>
-                <li>
-                    Choose the color scheme that fits your site's theme best. I use "Transparent Dark".
+                    Choose the color scheme that fits your site's theme best. I use
+                    <code>Transparent Dark</code>
+                    .
                 </li>
             </ol>
-            <p>
-                Finally, copy the generated HTML snippet over to your site template and enjoy comments!
-            </p>
-            <script src="https://giscus.app/client.js" data-repo="locxter/locxter.github.io" data-repo-id="R_kgDOIeICfw" data-category="Comments" data-category-id="DIC_kwDOIeICf84CSqm1" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
-            </script>
+            <p>Finally, copy the generated HTML snippet over to your site template and enjoy comments!</p>
+            <script src="https://giscus.app/client.js" data-repo="locxter/locxter.github.io" data-repo-id="R_kgDOIeICfw" data-category="Comments" data-category-id="DIC_kwDOIeICf84CSqm1" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
         </main>
         <footer>
-            <p>
-                2022 locxter
-            </p>
+            <p>2022 locxter</p>
         </footer>
     </body>
 </html>
