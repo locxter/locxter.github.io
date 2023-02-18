@@ -5,7 +5,7 @@
    height="200"
    viewBox="-180 -70 620 200"
    id="svg181"
-   sodipodi:docname="parallaxbarriere-linsenraster.svg"
+   sodipodi:docname="parallax-barrier-lenticular-grid.svg"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -24,9 +24,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="true"
      showgrid="false"
-     inkscape:zoom="2.1965706"
-     inkscape:cx="287.03835"
-     inkscape:cy="117.45582"
+     inkscape:zoom="7.1077675"
+     inkscape:cx="180.5771"
+     inkscape:cy="98.061734"
      inkscape:window-width="2520"
      inkscape:window-height="1412"
      inkscape:window-x="40"
@@ -863,7 +863,7 @@
   </g>
   <path
      id="line1046"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.572626"
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:#ffffff;stroke:#ffffff;stroke-width:0.572626;stroke-opacity:1"
      d="M -64.410284,-45.028983 -87.38999,-56.444305" />
   <text
      xml:space="preserve"
@@ -928,30 +928,30 @@
      id="use1164"
      d="m -88.538975,-27.906 16.085794,7.990725 v 45.661288 l -16.085794,-7.990725 z"
      fill="#333333"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525" />
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525;fill:#505050;fill-opacity:1" />
   <path
      id="use1166"
      d="m -51.771446,-9.6414849 16.085794,7.9907254 V 44.010528 l -16.085794,-7.990725 z"
      fill="#333333"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525" />
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525;fill:#505050;fill-opacity:1" />
   <path
      id="use1168"
      d="M -15.003916,8.6230303 1.0818781,16.613756 V 62.275044 L -15.003916,54.284318 Z"
      fill="#333333"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525" />
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525;fill:#505050;fill-opacity:1" />
   <path
      id="use1170"
      d="m 21.763613,26.887545 16.085795,7.990726 V 80.539559 L 21.763613,72.548833 Z"
      fill="#333333"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525" />
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525;fill:#505050;fill-opacity:1" />
   <path
      id="use1172"
      d="m 58.531143,45.152061 16.085794,7.990725 V 98.804074 L 58.531143,90.813349 Z"
      fill="#333333"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525" />
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;stroke:#000000;stroke-width:1.14525;fill:#505050;fill-opacity:1" />
   <path
      id="line1174"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.572626"
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:#000000;stroke:#ffffff;stroke-width:0.572626;stroke-opacity:1"
      d="M -87.38999,-16.490678 -110.3697,-27.906" />
   <g
      id="use1004"
@@ -1235,7 +1235,7 @@
   </g>
   <path
      id="line1250"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.570033"
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:#000000;stroke:#ffffff;stroke-width:0.570033;stroke-opacity:1"
      d="M 257.2537,-45.028979 234.48167,-56.444301" />
   <path
      d="M 264.08531,-35.896722 V 9.7645662 l 145.741,73.0580608"
@@ -1273,7 +1273,7 @@
      style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:url(#linearGradient1408);stroke:#000000;stroke-width:1.14007" />
   <path
      id="line1382"
-     style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:#000000;stroke:#000000;stroke-width:0.570033"
+     style="font-size:16px;font-family:sans-serif;text-anchor:middle;fill:#000000;stroke:#ffffff;stroke-width:0.570033;stroke-opacity:1"
      d="m 241.31328,-24.4814 -18.21762,-9.132257" />
   <g
      id="use1018"
