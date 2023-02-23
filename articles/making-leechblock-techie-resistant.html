@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Making LeechBlock techie-resistant | locxter.github.io</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="locxter">
+        <meta name="description" content="This is locxter's small space on the web.">
+        <link rel="stylesheet" href="../styles/dark.min.css">
+        <link rel="stylesheet" href="../styles/figure.css">
+    </head>
+    <body>
+        <header>
+            <h1>locxter.github.io</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Making LeechBlock techie-resistant</h2>
+            <h3>2023-02-23</h3>
+            <p>Most of us know these situations when we actually want to start working on the next billion dollar app, but somehow get stuck on our favourite social media platform (I also include watching educational YouTube videos here), a Wikipedia reference loop or just a weird web page. This is where LeechBlock as a FOSS and highly configurable content blocker comes to the rescue and allows us to restrict our possibibility to those that are beneficial to us in the long run. However, there a some drawbacks for techies in the default config...</p>
+            <p>
+                Probably the biggest one is the fact that you can simply go to the extension settings of your browser (
+                <code>about:addons</code>
+                in Firefox and
+                <code>chrome://extensions</code>
+                in Chromium) and deactivate LeechBlock there. Luckily, the developers have thought of this and added the option
+                <code>Prevent access to about:addons at times when these sites are blocked</code>
+                /
+                <code>Prevent access to Extensions page at times when these sites are blocked</code>
+                in the
+                <code>Advanced Options</code>
+                section of a set to keep yourself from doing this.
+            </p>
+            <figure>
+                <img src="../images/articles/making-leechblock-techie-resistant/extension-settings-control.svg" alt="Extension settings control">
+                <figcaption>Extension settings control</figcaption>
+            </figure>
+            <p>Most users will also enable one of the access control options (probably a random access code) on first setup to further restrict themselves from deactivating the blocker in weak moments and that is a great initial step.</p>
+            <figure>
+                <img src="../images/articles/making-leechblock-techie-resistant/access-control.png" alt="Access control">
+                <figcaption>Access control</figcaption>
+            </figure>
+            <p>Nevertheless, many techies will also be fast to figure out that you can just open the developer tools and copy the access code from there rendering the access control virtually useless.</p>
+            <figure>
+                <img src="../images/articles/making-leechblock-techie-resistant/hacking-access-control.png" alt="Hacking the access control">
+                <figcaption>Hacking the access control</figcaption>
+            </figure>
+            <p>
+                However, LeechBlock's developers also got you covered here and in the
+                <code>General</code>
+                tab there is a option
+                <code>Display access code as image</code>
+                to use a
+                <code>canvas</code>
+                object instead of regular text for the access code. It is right besides the important option to change the theme to a dark one.
+            </p>
+            <figure>
+                <img src="../images/articles/making-leechblock-techie-resistant/image-access-control.png" alt="Image access control">
+                <figcaption>Image access control</figcaption>
+            </figure>
+            <p>This makes it impossible to simply copy the access code and therefore actually pervents you from wasting you time on sites you really do not want to spend time on.</p>
+            <figure>
+                <img src="../images/articles/making-leechblock-techie-resistant/hacking-image-access-control.png" alt="Trying to hack the image access control">
+                <figcaption>Trying to hack the image access control</figcaption>
+            </figure>
+            <p>Hopefully, this small tutorial introduced you to or at least extended your knowledge of the amazing productivity tool that LeechBlock is. I highly recommend to give it try...</p>
+            <script src="https://giscus.app/client.js" data-repo="locxter/locxter.github.io" data-repo-id="R_kgDOIeICfw" data-category="Comments" data-category-id="DIC_kwDOIeICf84CSqm1" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
+        </main>
+        <footer>
+            <p>2022 - 2023 locxter</p>
+        </footer>
+    </body>
+</html>
