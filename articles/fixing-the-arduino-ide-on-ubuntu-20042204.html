@@ -2,11 +2,11 @@
 <html lang="en">
     <head>
         <title>Fixing the Arduino IDE on Ubuntu 20.04/22.04 | locxter.github.io</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="locxter">
-        <meta name="description" content="This is locxter's small space on the web.">
-        <link rel="stylesheet" href="../styles/dark.min.css">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
     </head>
     <body>
         <header>
@@ -21,7 +21,11 @@
         <main>
             <h2>Fixing the Arduino IDE on Ubuntu 20.04/22.04</h2>
             <h3>2022-12-14</h3>
-            <p>When you try to install the Arduino IDE on Ubuntu 20.04/22.04 or one of its derivatives via the default apt repositories, you won't get past the loading screen. This has to do with missing dependencies for serial communication. Luckily enough, you can fix this issue rather easily...</p>
+            <p>
+                When you try to install the Arduino IDE on Ubuntu 20.04/22.04 or one of its derivatives via the default
+                apt repositories, you won't get past the loading screen. This has to do with missing dependencies for
+                serial communication. Luckily enough, you can fix this issue rather easily...
+            </p>
             <ul>
                 <li>
                     Install the needed tools with
@@ -30,7 +34,10 @@
                 </li>
                 <li>
                     Patch the dependencies with
-                    <code>sudo patchelf --add-needed libserialport.so.0 /usr/lib/x86_64-linux-gnu/liblistSerialsj.so.1.4.0</code>
+                    <code
+                        >sudo patchelf --add-needed libserialport.so.0
+                        /usr/lib/x86_64-linux-gnu/liblistSerialsj.so.1.4.0</code
+                    >
                     .
                 </li>
                 <li>
@@ -40,7 +47,23 @@
                 </li>
             </ul>
             <p>That is it, enjoy your working Arduino IDE and thank me later...</p>
-            <script src="https://giscus.app/client.js" data-repo="locxter/locxter.github.io" data-repo-id="R_kgDOIeICfw" data-category="Comments" data-category-id="DIC_kwDOIeICf84CSqm1" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
         </main>
         <footer>
             <p>2022 - 2023 locxter</p>

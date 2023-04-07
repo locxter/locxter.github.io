@@ -2,12 +2,12 @@
 <html lang="en">
     <head>
         <title>Integrating BSPWM with XFCE4 for the perfect DE/WM setup | locxter.github.io</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="locxter">
-        <meta name="description" content="This is locxter's small space on the web.">
-        <link rel="stylesheet" href="../styles/dark.min.css">
-        <link rel="stylesheet" href="../styles/figure.css">
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="stylesheet" href="../styles/figure.css" />
     </head>
     <body>
         <header>
@@ -22,20 +22,53 @@
         <main>
             <h2>Integrating BSPWM with XFCE4 for the perfect DE/WM setup</h2>
             <h3>2023-03-19</h3>
-            <p>When getting into the Linux world, every newbie is inevitably confronted with a plethora of choice regarding a distribution's release model, package manager and - probably most important for daily use - desktop environment or window manager (DE or WM for short). So what's the perfect setup? Well, in this article I want to present my somewhat unusual, but honestly amazing choice of integrating BSPWM with XFCE4...</p>
-            <p>Before we talk about what makes this specific combination so awesome, we should first understand which jobs a DE/WM has and what diffentiates the two. In a nutshell, a DE or WM is responsible for controlling the placement and appearance of graphical windows by providing them with an area to draw within and forwarding user interactions like quit requests issued via graphical buttons or keyboard shortcuts. Whereas a window manager aims to be simple and follow the UNIX philosophy by doing only this one thing, but doing it well, a desktop environment is a collection of several components usually including a window manager, task bar (with tray and application launcher), wallpaper engine as well as integrated applications and utilities (e. g. for network, bluetooth and display configuration).</p>
-            <p>Personally, I really like the idea of tiling WMs due to their simplicity and productivity, since you do not have to think about window managment too much yourself, they force you to organize your windows in different workspaces and therefore overall embrace structuring you work. However, they really are quite minimal by design and therefore somewhat inconvenient to use standalone, which is where the integration with DEs comes into play.</p>
-            <p>I selected XFCE4, because it is lightweight as well as very modular and therefore quite easily allows you to replace its default window manager XFWM4 with something else, and BSPWM, which is not the most popular, but a very capable and modular WM with very comfortable defaults. The specialties of BSPWM include support of gaps between windows, spiral window ordering and the lack of an integrated status bar as well as keyboard deamon, which makes it the perfect fit for my case.</p>
+            <p>
+                When getting into the Linux world, every newbie is inevitably confronted with a plethora of choice
+                regarding a distribution's release model, package manager and - probably most important for daily use -
+                desktop environment or window manager (DE or WM for short). So what's the perfect setup? Well, in this
+                article I want to present my somewhat unusual, but honestly amazing choice of integrating BSPWM with
+                XFCE4...
+            </p>
+            <p>
+                Before we talk about what makes this specific combination so awesome, we should first understand which
+                jobs a DE/WM has and what diffentiates the two. In a nutshell, a DE or WM is responsible for controlling
+                the placement and appearance of graphical windows by providing them with an area to draw within and
+                forwarding user interactions like quit requests issued via graphical buttons or keyboard shortcuts.
+                Whereas a window manager aims to be simple and follow the UNIX philosophy by doing only this one thing,
+                but doing it well, a desktop environment is a collection of several components usually including a
+                window manager, task bar (with tray and application launcher), wallpaper engine as well as integrated
+                applications and utilities (e. g. for network, bluetooth and display configuration).
+            </p>
+            <p>
+                Personally, I really like the idea of tiling WMs due to their simplicity and productivity, since you do
+                not have to think about window managment too much yourself, they force you to organize your windows in
+                different workspaces and therefore overall embrace structuring you work. However, they really are quite
+                minimal by design and therefore somewhat inconvenient to use standalone, which is where the integration
+                with DEs comes into play.
+            </p>
+            <p>
+                I selected XFCE4, because it is lightweight as well as very modular and therefore quite easily allows
+                you to replace its default window manager XFWM4 with something else, and BSPWM, which is not the most
+                popular, but a very capable and modular WM with very comfortable defaults. The specialties of BSPWM
+                include support of gaps between windows, spiral window ordering and the lack of an integrated status bar
+                as well as keyboard deamon, which makes it the perfect fit for my case.
+            </p>
             <p>In order to integrate BSPWM with XFCE4, you simply have to follow these steps:</p>
             <ol>
                 <li>
                     Deactivate XFWM4 and start BSPWM instead by running:
-                    <code>xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa xfsettingsd && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client1_Command -t string -sa xfdesktop && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client2_Command -t string -sa xfce4-panel && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client3_Command -t string -sa bspwm</code>
+                    <code
+                        >xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa xfsettingsd
+                        && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client1_Command -t string -sa xfdesktop
+                        && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client2_Command -t string -sa xfce4-panel
+                        && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client3_Command -t string -sa bspwm</code
+                    >
                 </li>
                 <li>
                     Remove all keyboard shortcuts from the XFCE settings and use
                     <code>sxhkd</code>
-                    as a keyboard daemon instead. Alternatively, add all the necessary shortcuts to the integrated XFCE daemon - take a look at
+                    as a keyboard daemon instead. Alternatively, add all the necessary shortcuts to the integrated XFCE
+                    daemon - take a look at
                     <code>xfce4-keyboard-shortcuts.xml</code>
                     in
                     <code>xfce4-config.zip</code>
@@ -45,7 +78,10 @@
                 </li>
                 <li>
                     Add the line
-                    <code>bspc rule -a Wrapper-2.0 monitor=primary follow=on state=floating border=off rectangle=500x600+0+0</code>
+                    <code
+                        >bspc rule -a Wrapper-2.0 monitor=primary follow=on state=floating border=off
+                        rectangle=500x600+0+0</code
+                    >
                     to your
                     <code>bspwmrc</code>
                     in order to properly show the Whisker menu.
@@ -60,8 +96,27 @@
                 </li>
                 <li>Configure XFCE4 just like you would do in any other setup and enjoy your new config.</li>
             </ol>
-            <p>For me at least, this setup really made me love my computer even more and helped structure my workflows better. If you have any advices to make it still better, feel free to post them in the comments...</p>
-            <script src="https://giscus.app/client.js" data-repo="locxter/locxter.github.io" data-repo-id="R_kgDOIeICfw" data-category="Comments" data-category-id="DIC_kwDOIeICf84CSqm1" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy" crossorigin="anonymous" async></script>
+            <p>
+                For me at least, this setup really made me love my computer even more and helped structure my workflows
+                better. If you have any advices to make it still better, feel free to post them in the comments...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
         </main>
         <footer>
             <p>2022 - 2023 locxter</p>
