@@ -57,12 +57,12 @@
             <ol>
                 <li>
                     Deactivate XFWM4 and start BSPWM instead by running:
-                    <code
-                        >xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa xfsettingsd
-                        && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client1_Command -t string -sa xfdesktop
-                        && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client2_Command -t string -sa xfce4-panel
-                        && xfconf-query -c xfce4-session -p /sessions/Failsafe/Client3_Command -t string -sa bspwm</code
-                    >
+                    <code>
+                        xfconf-query -c xfce4-session -p /sessions/Failsafe/Client0_Command -t string -sa xfsettingsd &&
+                        xfconf-query -c xfce4-session -p /sessions/Failsafe/Client1_Command -t string -sa xfdesktop &&
+                        xfconf-query -c xfce4-session -p /sessions/Failsafe/Client2_Command -t string -sa xfce4-panel &&
+                        xfconf-query -c xfce4-session -p /sessions/Failsafe/Client3_Command -t string -sa bspwm
+                    </code>
                 </li>
                 <li>
                     Remove all keyboard shortcuts from the XFCE settings and use
@@ -78,10 +78,10 @@
                 </li>
                 <li>
                     Add the line
-                    <code
-                        >bspc rule -a Wrapper-2.0 monitor=primary follow=on state=floating border=off
-                        rectangle=500x600+0+0</code
-                    >
+                    <code>
+                        bspc rule -a Wrapper-2.0 monitor=primary follow=on state=floating border=off
+                        rectangle=500x600+0+0
+                    </code>
                     to your
                     <code>bspwmrc</code>
                     in order to properly show the Whisker menu.
@@ -92,7 +92,7 @@
                     inside
                     <code>/etc/profile.d/</code>
                     with the following content:
-                    <pre><code>#!/bin/bash<br>export _JAVA_AWT_WM_NONREPARENTING=1<br>export AWT_TOOLKIT=MToolkit<br>export JAVA_TOOL_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"<br>export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"<br>export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"</code></pre>
+                    <pre><code>#!/bin/bash<br />export _JAVA_AWT_WM_NONREPARENTING=1<br />export AWT_TOOLKIT=MToolkit<br />export JAVA_TOOL_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"<br />export JDK_JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"<br />export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel"</code></pre>
                 </li>
                 <li>Configure XFCE4 just like you would do in any other setup and enjoy your new config.</li>
             </ol>
