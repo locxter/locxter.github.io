@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Build your own multi-room sound system with Snapcast | locxter.github.io</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="stylesheet" href="../styles/figure.css" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.github.io</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Build your own multi-room sound system with Snapcast</h2>
+            <h3>2023-04-13</h3>
+            <p>
+                By now, everyone should have seen multi-room sound systems (like Sonos makes them) and understood that
+                they are pretty damn cool. However, they also are mighty expensive - especially if you already have good
+                speakers around your house - and usually lock you into a proprietary ecosystem, which makes them quite a
+                hard pill to swallow. Thankfully, we can build our own, fully open source and configurable multi-room
+                sound system with
+                <a href="https://github.com/badaix/snapcast">Snapcast</a>
+                for a fraction of the cost...
+            </p>
+            <p>
+                Snapcast is flexible multi-room audio player that is based on a client-server architecture, where a
+                single or multiple audio signals are fed to the server, which synchronizes all clients and forwards the
+                audio to them based on audio stream groups. Audio sources can be Line-In,
+                <a href="https://github.com/mikebrady/shairport-sync">AirPlay</a>
+                and
+                <a href="https://github.com/librespot-org/librespot">Spotify</a>
+                directly or more advanced music servers like
+                <a href="https://www.musicpd.org/">MPD</a>
+                and
+                <a href="https://mopidy.com/">Mopidy</a>
+                , which intern support playback of local and streamed music from different sources. While the the server
+                should run on Linux (possibly a low-power Raspberry Pi), clients are available for all major systems
+                including
+                <a href="https://github.com/stijnvdb88/Snap.Net">Windows</a>
+                ,
+                <a href="https://f-droid.org/en/packages/de.badaix.snapcast/">Android</a>
+                and even
+                <a href="https://apps.apple.com/us/app/snapcast-control/id1552559653">iOS</a>
+                (although paid). This makes the system very flexible/extensible and allows for repurposing of abandoned
+                hardware like outdated smartphones or laptops as cheap clients (although possibly with the caveat of
+                security).
+            </p>
+            <p>
+                Personally, I was only searching for quick, temporary solution to stream audio from my laptop to several
+                bluetooth speakers, which is why I went with the simplest solution possible. Here's what I did:
+            </p>
+            <ol>
+                <li>
+                    I installed the server on my laptop via
+                    <code>sudo apt install snapserver</code>
+                    and disabled my firewall with
+                    <code>sudo ufw disable</code>
+                    for testing purposes (otherwise open the ports 1704 and 1705).
+                </li>
+                <li>
+                    I installed the client on two Android phones, one Windows PC and one other Linux laptop via the
+                    links from above and
+                    <code>sudo apt install snapclient</code>
+                    respectively.
+                </li>
+                <li>
+                    I disabled the the daemons with
+                    <code>sudo systemctl disable snapserver.service</code>
+                    and
+                    <code>sudo systemctl disable snapclient.service</code>
+                    respectively.
+                </li>
+                <li>
+                    I added the required PulseAudio pipe sink to the server with
+                    <code>
+                        pacmd load-module module-pipe-sink file=/tmp/snapfifo sink_name=Snapcast format=s16le rate=48000
+                        && pacmd update-sink-proplist Snapcast device.description=Snapcast
+                    </code>
+                    and started Snapcast via
+                    <code>snapserver</code>
+                    .
+                </li>
+                <li>
+                    I started all the clients and connected them to the server via the automatic search or by manually
+                    entering the IP address of my laptop.
+                </li>
+                <li>
+                    I connected the clients via Bluetooth to their dedicated speakers and played some nice tunes from my
+                    laptop throughout the whole house.
+                </li>
+                <li>
+                    Afterwards, I simply stopped the clients and server, deleted the pipe sink via
+                    <code>pacmd unload-module module-pipe-sink</code>
+                    and re-enabled my firewall with
+                    <code>sudo ufw enable</code>
+                    .
+                </li>
+            </ol>
+            <p>
+                Honestly, I was quite surpised how easy it was to get everything up and running as well as how stable
+                the whole system worked. I never experienced any dropouts and the latency compensation also performed
+                very well. This excellent performance in a somewhat shitty setup is also why I write this article, as I
+                am just overall very impressed by this system. If you want to run Snapcast in any kind of permanent
+                installation though, I would highly recommend you to take a deeper look at their
+                <a href="https://github.com/badaix/snapcast">GitHub</a>
+                as well as
+                <a href="https://mopidy.com/">Mopidy</a>
+                for a more sophisticated setup. If you have any personal experiences with Snapcast, feel free to let me
+                know about them in the comments below...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+        </main>
+        <footer>
+            <p>2022 - 2023 locxter</p>
+        </footer>
+    </body>
+</html>
