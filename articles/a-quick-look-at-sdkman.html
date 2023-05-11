@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at SDKMAN! | locxter.github.io</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="stylesheet" href="../styles/figure.css" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.github.io</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at SDKMAN!</h2>
+            <h3>2023-05-11</h3>
+            <p>
+                With my move to Kotlin, I started noticing just how outdated all the Java/JVM ecosystem packages are.
+                Naturally, I looked around how to solve this issue and as it turns out there is a package manager called
+                SDKMAN! for just this use case. So let's take a quick look...
+            </p>
+            <p>
+                Formerly known as GVM (Groovy enVironment Manager), SDKMAN! is a purpose build package manager for SDKs
+                and related software in the JVM world. Besides plain installation of SDKs, it allows for multiple
+                version sof the same package to be installed and switched easily. It is also very lightweight, only
+                relying on
+                <code>bash</code>
+                ,
+                <code>curl</code>
+                and
+                <code>zip/unzip</code>
+                to be installed. As the cherry on top, it installs to your user's home directory by default, which makes
+                it even a compelling option, if you don't have administrator rights on the system your working with.
+            </p>
+            <p>This is how your basic installation/workflow goes:</p>
+            <ul>
+                <li>
+                    Install SDKMAN! via their amazing install script:
+                    <code>curl -s "https://get.sdkman.io" | bash</code>
+                </li>
+                <li>
+                    Reopen your terminal or enter
+                    <code>source "$HOME/.sdkman/bin/sdkman-init.sh"</code>
+                </li>
+                <li>
+                    Check that the installation is working with
+                    <code>sdk version</code>
+                    , which should spit out the installed version of SDKMAN!
+                </li>
+                <li>
+                    Install your packages one by one with
+                    <code>`sdk install PACKAGE`</code>
+                </li>
+                <li>
+                    If you want, you can also specify a specific version number via
+                    <code>sdk install PACKAGE VERSION</code>
+                    , but it always chooses to the latest stable version by default, which makes it a hassle-free
+                    experience for the most part
+                </li>
+            </ul>
+            <p>
+                Maybe this very short spotlight, was just as helpful for you as finding out about SDKMAN! was for me. If
+                so, feel free to let me know about it in the comments...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+        </main>
+        <footer>
+            <p>2022 - 2023 locxter</p>
+        </footer>
+    </body>
+</html>
