@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Improving my crappy Snapcast setup | locxter.github.io</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="stylesheet" href="../styles/figure.css" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.github.io</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Improving my crappy Snapcast setup</h2>
+            <h3>2023-05-13</h3>
+            <p>
+                About a month ago, I introduced you to the amazing open source multi-room audio player
+                <a href="https://github.com/badaix/snapcast">Snapcast</a>
+                , but only presented a very minimal, crappy setup. Today, we are changing this, as I want to share my
+                new and improved setup...
+            </p>
+            <p>
+                This time around, I opted for a Raspberry Pi as the dedicated head of operation and want to be able to
+                connect to it just like you know it from a normal Bluetooth/AirPlay speaker, which then distributes the
+                signal to all connected clients. The Pi therefore needs to run the Snapcast server along with a piece of
+                software that handles the signal input. I chose
+                <a href="https://github.com/mincequi/cornrow">Cornrow</a>
+                , which is a hassle-free Bluetooth audio daemon for single-board computers (SBCs), and couldn't be
+                happier with it. The clients are still the same amazing and zero-setup apps available for almost all
+                platforms plus the Pi itself (via the audio jack), if you want. The whole structure of my setup can be
+                seen below:
+            </p>
+            <figure>
+                <img
+                    src="../images/articles/improving-my-crappy-snapcast-setup/snapcast-setup.svg"
+                    alt="My Snapcast setup"
+                />
+                <figcaption>My Snapcast setup</figcaption>
+            </figure>
+            <p>Here is how to set everything up just like I have it:</p>
+            <ul>
+                <li>
+                    Flash a fresh Raspberry Pi OS Lite image to an SD card via the RPI Imager (enable SSH and enter
+                    Wi-Fi credentials to connect to it right away)
+                </li>
+                <li>
+                    Connect to the system via
+                    <code>ssh USERNAME@HOSTNAME.local</code>
+                </li>
+                <li>
+                    Update the system via
+                    <code>sudo apt update && sudo apt full-upgrade -y</code>
+                </li>
+                <li>
+                    Update the firmware via
+                    <code>sudo rpi-update</code>
+                </li>
+                <li>
+                    Install snapserver from the repositories via
+                    <code>sudo apt install snapserver -y</code>
+                    (the service should be enabled automatically)
+                </li>
+                <li>
+                    Install Cornrow this way:
+                    <ul>
+                        <li>
+                            Download the newest .deb package from GitHub via
+                            <code>
+                                wget
+                                https://github.com/mincequi/cornrow/releases/download/v0.8.1/cornrowd_0.8.1_armhf.deb
+                            </code>
+                        </li>
+                        <li>
+                            Install it via
+                            <code>sudo apt install ./cornrowd_0.8.1_armhf.deb -y</code>
+                        </li>
+                        <li>
+                            Set up the service via
+                            <code>
+                                sudo systemctl unmask cornrowd.service && sudo systemctl enable cornrowd.service
+                            </code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Modify the Cornrow config to use AirPlay and stream to a local TCP connection:
+                    <pre><code>[bluetooth_source]<br />codecs = [ 0x0 ]<br />sample_rates = [ 44100, 44800 ]<br /><br />[airplay_source]<br />name = "musicpi"<br />port = 0<br />buffer_time = 2000<br /><br />#[alsa_sink]<br />#device = "default"<br /><br />[tcp_sink]<br />host = "127.0.0.1"<br />port = 4953<br /></code></pre>
+                </li>
+                <li>
+                    Modify the Snapcast config to accept the TCP stream:
+                    <pre><code>[stream]<br />#source = pipe:///tmp/snapfifo?name=default<br />source = tcp://127.0.0.1:4953?name=musicpi&sampleformat=44100:16:2</code></pre>
+                </li>
+                <li>
+                    If you have problems to connect to the Raspi after deleting the pairing from your client device
+                    (like an Android phone), unpair it from the server as follows:
+                    <ul>
+                        <li>
+                            Hop into
+                            <code>bluetoothctl</code>
+                        </li>
+                        <li>
+                            List all paired devices in the new prompt via
+                            <code>paired-devices</code>
+                        </li>
+                        <li>
+                            Unpair all misbehaving devices by finding their MAC address (format
+                            <code>aa:bb:cc:dd:ee:ff</code>
+                            ) and removing them via
+                            <code>remove MACADDRESS</code>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    If you want to Raspi to output audio via it's audiojack too, simply install the client there as well
+                    via
+                    <code>sudo apt install snapclient -y</code>
+                    (the service should be enabled automatically)
+                </li>
+                <li>Reboot the Pi and enjoy this simple, but amazing setup</li>
+            </ul>
+            <p>With that said, consider giving it a try yourself and have a lovely day...</p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+        </main>
+        <footer>
+            <p>2022 - 2023 locxter</p>
+        </footer>
+    </body>
+</html>
