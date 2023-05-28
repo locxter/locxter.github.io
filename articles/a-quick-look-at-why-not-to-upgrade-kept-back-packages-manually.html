@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at why not to upgrade kept-back packages manually | locxter.github.io</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="stylesheet" href="../styles/figure.css" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.github.io</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at why not to upgrade kept-back packages manually</h2>
+            <h3>2023-05-28</h3>
+            <p>
+                I use the fantastic Mint web app manager quite heavily as I personally employ an no snap, Flatpak or
+                AppImage policy. Therefore I heavily rely on Chromium to run the web versions of Standard Notes,
+                Tutanota, WhatsApp, Beatbump and so on. Unfortunately, a recent update of some Mesa components broke not
+                the normal Chromium, but only my precious web apps and therefore I needed to roll back the packages in
+                order to keep my production system functional and wait for a fix to be implemented. So let's take a look
+                at what
+                <code>kept-back</code>
+                even means, why should not manually upgrade such packages and how to fix your system. if you
+                (accidentally) did so...
+            </p>
+            <p>
+                By design, packages available in all major package managers on Linux can depend on other packages such a
+                graphics API or serial library to work. When a new version of a package releases, this usually isn'a big
+                deal. It can however quickly become problematic, if the new release also requires updated dependencies.
+                If the dependencies have changed on one of the packages you have installed so that a new package must be
+                installed to perform the upgrade, then that will be listed as
+                <code>kept-back</code>
+                . Sometimes it can be even worse in case several packages rely on the same dependencies, but requires
+                different versions that can't be installed simultaneously - this is what we call
+                <strong>Dependency Hell</strong>
+                . If you now force to upgrade a package that has been marked as
+                <code>kept-back</code>
+                , you're pretty likely to break something.
+            </p>
+            <p>
+                Luckily, Linux gives you full control over you system, so you can rather easily roll a package back to
+                the previously working version. Just follow these steps:
+            </p>
+            <ol>
+                <li>
+                    Find the full name of the troublesome package by looking through your Bash history, which is usually
+                    stored at
+                    <code>~/.bash_history</code>
+                    .
+                </li>
+                <li>
+                    List all available versions of the package via
+                    <code>apt show -a PACKAGE</code>
+                    and note down the version number of the working release.
+                </li>
+                <li>
+                    Manually install the specific version via
+                    <code>sudo apt install PACKAGE=VERSION</code>
+                    .
+                </li>
+                <li>
+                    You might have to also roll back some of its dependencies, so repeat this process until
+                    <code>apt</code>
+                    is happy.
+                </li>
+            </ol>
+            <p>
+                Hopefully this very short spotlight, was just as helpful to you as fixing my system was for me. If so,
+                feel free to let me know about it in the comments...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+        </main>
+        <footer>
+            <p>2022 - 2023 locxter</p>
+        </footer>
+    </body>
+</html>
