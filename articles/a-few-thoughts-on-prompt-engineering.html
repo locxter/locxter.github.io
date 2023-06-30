@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A few thoughts on prompt engineering | locxter.github.io</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="stylesheet" href="../styles/figure.css" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.github.io</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A few thoughts on prompt engineering</h2>
+            <h3>2023-06-30</h3>
+            <p>
+                With transformer models such as ChatGPT being all the rage right now, the art of creating clear, concise
+                and effective prompts - also known as
+                <strong>prompt engineering</strong>
+                - has become increasingly important in order to utilize these tools to their full potential. Without
+                further ado, here are my top 5 strategies to get these models to behave the way you want...
+            </p>
+            <h3>1. Dos and dont's</h3>
+            <p>
+                As always in life, specifying your requirements as clearly as possible will improve the outcome of a
+                certain project, task or whatsoever. This also applies to prompt engineering, so try to provide certain
+                positive (dos) and negative (dont's) requirements. Here are some examples:
+            </p>
+            <ul>
+                <li>
+                    Structure:
+                    <code>Divide the text into a heading, introduction, main part and conclusion.</code>
+                </li>
+                <li>
+                    Steps:
+                    <code>Build each point according to the to the PEE-principle (point, evidence, explanation).</code>
+                </li>
+                <li>
+                    Intended use/Addressee:
+                    <code>
+                        The outline should be used in a professional or academic setting and have an appropriately
+                        elevated standard.
+                    </code>
+                </li>
+                <li>
+                    Focus:
+                    <code>Particularly address the following aspects: Career, achievements, and scandals</code>
+                </li>
+                <li>
+                    Length:
+                    <code>The final text should be about 750 words long.</code>
+                </li>
+            </ul>
+            <h3>2. Role plays</h3>
+            <p>
+                Surprisingly, telling the model to act as a certain person can yield vastly better results without much
+                work. So, keep this step in mind and ideally place this part right at the beginning of the conversation
+                (or even better in a system prompt). Here is some inspiration:
+            </p>
+            <ul>
+                <li>
+                    <code>You are an expert in Roman history with 40 years of professional experience.</code>
+                </li>
+                <li>
+                    <code>You are a sarcastic comedian, who is attracted to communism.</code>
+                </li>
+                <li>
+                    <code>
+                        You are an AI system for producing text analysis in Markdown format, using only complete
+                        sentences.
+                    </code>
+                </li>
+            </ul>
+            <h3>3. Templates</h3>
+            <p>
+                Especially for larger tasks such as a presentation in Markfown format, creating a certain template that
+                the model can fill out and adapt makes sense to ensure consistant output. This can look like this:
+            </p>
+            <pre><code>Fill the following template and adapt it if necessary with more pages. Template:<br><br>"""<br># Title<br><br>&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;<br><br>#### Author<br><br>---<br><br># Agenda<br><br>- Topic 1<br>- Topic 2<br>- Topic 3<br><br>---<br><br># Topic 1<br><br>- Point<br>- Point<br>- Point<br><br>&lt;br&gt;&lt;br&gt;<br><br>**&rarr; Conclusion of the topic**<br><br>---<br><br># Topic 2<br><br>- Point<br>- Point<br>- Point<br><br>&lt;br&gt;&lt;br&gt;<br><br>**&rarr; Conclusion of the topic**<br><br>---<br><br># Thanks for your attention!<br><br>Sources:<br><br>- Source<br>- Source<br>- Source<br>"""</code></pre>
+            <h3>4. Examples</h3>
+            <p>
+                When we just provide a certain prompt, we are technicially doing so-called zero-shot prompting, which
+                means that we don't specify any further context or examples of how we want the model to behave. Adding
+                some of these to use few-shot prompting, is quite advisible for universal system such as customer
+                service bots, but is sadly only really supported through the API. If you want to give it a go, take a
+                look at the official
+                <a href="https://platform.openai.com/docs/guides/gpt-best-practices/tactic-provide-examples">
+                    GPT best practices
+                </a>
+                .
+            </p>
+            <h3>5. Split into smaller tasks</h3>
+            <p>
+                Last but certainly not least, I want to emphasize the possibility of splitting larger tasks into smaller
+                ones, which can be fulfilled sequentally, in order to lower the difficulty for the model or even enable
+                it to perfom the wanted task. Here an example of splitting a text analysis into smaller chunks:
+            </p>
+            <ol>
+                <li>
+                    Trivia:
+                    <code>
+                        Write an introduction, giving details of the author, title, type of text, year of publication,
+                        topic and addressee.
+                    </code>
+                </li>
+                <li>
+                    Content:
+                    <code>
+                        Summarize the central statements of the text, maintaining linguistic distance through the use of
+                        the subjunctive mood.
+                    </code>
+                </li>
+                <li>
+                    Language:
+                    <code>
+                        Analyze the language used in the text, looking at common stylistic devices, particular word
+                        choices, positive/negative connotation, etc.
+                    </code>
+                </li>
+                <li>
+                    Effect:
+                    <code>
+                        Based on your findings on the introduction, content and language, create an interpretation of
+                        the text's effect.
+                    </code>
+                </li>
+            </ol>
+            <p>
+                With that said, I hope you find these strategies just as useful as I do. Of course, feel free to share
+                you findings in the comments down below and have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+        </main>
+        <footer>
+            <p>2022 - 2023 locxter</p>
+        </footer>
+    </body>
+</html>
