@@ -6,315 +6,315 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2023 locxter</copyright>
-        <lastBuildDate>Fri, 21 Jul 2023 00:00:00 +2000</lastBuildDate>
+        <lastBuildDate>Fri, 21 Jul 2023 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.github.io/rss/articles.xml" rel="self" type="application/rss+xml" />
         <item>
             <title>Some impressions of working with Unity</title>
             <link>https://locxter.github.io/articles/some-impressions-of-working-with-unity.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/some-impressions-of-working-with-unity.html</guid>
-            <pubDate>Fri, 21 Jul 2023 00:00:00 +2000</pubDate>
+            <pubDate>Fri, 21 Jul 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>A quick look at one sec</title>
             <link>https://locxter.github.io/articles/a-quick-look-at-one-sec.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/a-quick-look-at-one-sec.html</guid>
-            <pubDate>Tue, 18 Jul 2023 00:00:00 +2000</pubDate>
+            <pubDate>Tue, 18 Jul 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>My take on goals in life and work-life balance</title>
             <link>https://locxter.github.io/articles/my-take-on-goals-in-life-and-work-life-balance.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/my-take-on-goals-in-life-and-work-life-balance.html</guid>
-            <pubDate>Sat, 15 Jul 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sat, 15 Jul 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>On the rise of subscriptions and downfall of possession</title>
             <link>https://locxter.github.io/articles/on-the-rise-of-subscriptions-and-downfall-of-possession.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/on-the-rise-of-subscriptions-and-downfall-of-possession.html</guid>
-            <pubDate>Sat, 8 Jul 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sat, 8 Jul 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>A few thoughts on prompt engineering</title>
             <link>https://locxter.github.io/articles/a-few-thoughts-on-prompt-engineering.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/a-few-thoughts-on-prompt-engineering.html</guid>
-            <pubDate>Fri, 30 Jun 2023 00:00:00 +2000</pubDate>
+            <pubDate>Fri, 30 Jun 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>We humans actually are fundamentally good</title>
             <link>https://locxter.github.io/articles/we-humans-actually-are-fundamentally-good.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/we-humans-actually-are-fundamentally-good.html</guid>
-            <pubDate>Sun, 25 Jun 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sun, 25 Jun 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>My generation is broken...</title>
             <link>https://locxter.github.io/articles/my-generation-is-broken.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/my-generation-is-broken.html</guid>
-            <pubDate>Sun, 18 Jun 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sun, 18 Jun 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>Staying organized is the key</title>
             <link>https://locxter.github.io/articles/staying-organized-is-the-key.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/staying-organized-is-the-key.html</guid>
-            <pubDate>Sun, 11 Jun 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sun, 11 Jun 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>chtgpttlbx - an extensible ChatGPT toolbox</title>
             <link>https://locxter.github.io/articles/chtgpttlbx-an-extensible-chatgpt-toolbox.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/chtgpttlbx-an-extensible-chatgpt-toolbox.html</guid>
-            <pubDate>Sat, 3 Jun 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sat, 3 Jun 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>A quick look at why not to upgrade kept-back packages manually</title>
             <link>https://locxter.github.io/articles/a-quick-look-at-why-not-to-upgrade-kept-back-packages-manually.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/a-quick-look-at-why-not-to-upgrade-kept-back-packages-manually.html</guid>
-            <pubDate>Sun, 28 May 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sun, 28 May 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>The AI train only keeps accelerating</title>
             <link>https://locxter.github.io/articles/the-ai-train-only-keeps-accelerating.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/the-ai-train-only-keeps-accelerating.html</guid>
-            <pubDate>Sat, 20 May 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sat, 20 May 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>Improving my crappy Snapcast setup</title>
             <link>https://locxter.github.io/articles/improving-my-crappy-snapcast-setup.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/improving-my-crappy-snapcast-setup.html</guid>
-            <pubDate>Sat, 13 May 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sat, 13 May 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>A quick look at SDKMAN!</title>
             <link>https://locxter.github.io/articles/a-quick-look-at-sdkman.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/a-quick-look-at-sdkman.html</guid>
-            <pubDate>Thu, 11 May 2023 00:00:00 +2000</pubDate>
+            <pubDate>Thu, 11 May 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>Master the start of a day and you will master it as a whole</title>
             <link>https://locxter.github.io/articles/master-the-start-of-a-day-and-you-will-master-it-as-a-whole.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/master-the-start-of-a-day-and-you-will-master-it-as-a-whole.html</guid>
-            <pubDate>Fri, 5 May 2023 00:00:00 +2000</pubDate>
+            <pubDate>Fri, 5 May 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>My impressions of working with Kotlin and SvelteKit</title>
             <link>https://locxter.github.io/articles/my-impressions-of-working-with-kotling-and-sveltekit.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/my-impressions-of-working-with-kotling-and-sveltekit.html</guid>
-            <pubDate>Sat, 29 Apr 2023 00:00:00 +2000</pubDate>
+            <pubDate>Sat, 29 Apr 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>Let's talk about imposter syndrome</title>
             <link>https://locxter.github.io/articles/lets-talk-about-imposter-syndrome.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/lets-talk-about-imposter-syndrome.html</guid>
-            <pubDate>Fri, 21 Apr 2023 00:00:00 +2000</pubDate>
+            <pubDate>Fri, 21 Apr 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>Build your own multi-room sound system with Snapcast</title>
             <link>https://locxter.github.io/articles/build-your-own-multi-room-sound-system-with-snapcast.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/build-your-own-multi-room-sound-system-with-snapcast.html</guid>
-            <pubDate>Thu, 13 Apr 2023 00:00:00 +2000</pubDate>
+            <pubDate>Thu, 13 Apr 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>Today's news is incredibly negatively biased</title>
             <link>https://locxter.github.io/articles/todays-news-is-incredibly-negatively-biased.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/todays-news-is-incredibly-negatively-biased.html</guid>
-            <pubDate>Wed, 5 Apr 2023 00:00:00 +2000</pubDate>
+            <pubDate>Wed, 5 Apr 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>Learn and remember anything with Anki</title>
             <link>https://locxter.github.io/articles/learn-and-remember-anything-with-anki.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/learn-and-remember-anything-with-anki.html</guid>
-            <pubDate>Fri, 31 Mar 2023 00:00:00 +2000</pubDate>
+            <pubDate>Fri, 31 Mar 2023 00:00:00 +0200</pubDate>
         </item>
         <item>
             <title>Habits are all about friction</title>
             <link>https://locxter.github.io/articles/habits-are-all-about-friction.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/habits-are-all-about-friction.html</guid>
-            <pubDate>Sat, 25 Mar 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sat, 25 Mar 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Integrating BSPWM with XFCE4 for the perfect DE/WM setup</title>
             <link>https://locxter.github.io/articles/integrating-bspwm-with-xfce4-for-the-perfect-dewm-setup.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/integrating-bspwm-with-xfce4-for-the-perfect-dewm-setup.html</guid>
-            <pubDate>Sun, 19 Mar 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sun, 19 Mar 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>A gentle introduction to Workrave</title>
             <link>https://locxter.github.io/articles/a-gentle-introduction-to-workrave.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/a-gentle-introduction-to-workrave.html</guid>
-            <pubDate>Sun, 12 Mar 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sun, 12 Mar 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Smartphones are today's opium of the masses</title>
             <link>https://locxter.github.io/articles/smartphones-are-todays-opium-of-the-masses.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/smartphones-are-todays-opium-of-the-masses.html</guid>
-            <pubDate>Sun, 5 Mar 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sun, 5 Mar 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Making LeechBlock techie-resistant</title>
             <link>https://locxter.github.io/articles/making-leechblock-techie-resistant.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/making-leechblock-techie-resistant.html</guid>
-            <pubDate>Thu, 23 Feb 2023 00:00:00 +1000</pubDate>
+            <pubDate>Thu, 23 Feb 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Steoreoscopic displays: Conclusion and outlook</title>
             <link>https://locxter.github.io/articles/steoreoscopic-displays-conclusion-and-outlook.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/steoreoscopic-displays-conclusion-and-outlook.html</guid>
-            <pubDate>Mon, 20 Feb 2023 00:00:00 +1000</pubDate>
+            <pubDate>Mon, 20 Feb 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Steoreoscopic displays: Glasses-free processes</title>
             <link>https://locxter.github.io/articles/stereoscopic-displays-glasses-free-processes.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/stereoscopic-displays-glasses-free-processes.html</guid>
-            <pubDate>Sun, 19 Feb 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sun, 19 Feb 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Steoreoscopic displays: Shutter process</title>
             <link>https://locxter.github.io/articles/stereoscopic-displays-shutter-process.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/stereoscopic-displays-shutter-process.html</guid>
-            <pubDate>Sat, 18 Feb 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sat, 18 Feb 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Steoreoscopic displays: Polarization filter process</title>
             <link>https://locxter.github.io/articles/stereoscopic-displays-polarization-filter-process.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/stereoscopic-displays-polarization-filter-process.html</guid>
-            <pubDate>Fri, 17 Feb 2023 00:00:00 +1000</pubDate>
+            <pubDate>Fri, 17 Feb 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Steoreoscopic displays: Anaglyph process</title>
             <link>https://locxter.github.io/articles/stereoscopic-displays-anaglyph-process.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/stereoscopic-displays-anaglyph-process.html</guid>
-            <pubDate>Thu, 16 Feb 2023 00:00:00 +1000</pubDate>
+            <pubDate>Thu, 16 Feb 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Steoreoscopic displays: Stereoscopic vision of humans</title>
             <link>https://locxter.github.io/articles/stereoscopic-displays-stereoscopic-vision-of-humans.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/stereoscopic-displays-stereoscopic-vision-of-humans.html</guid>
-            <pubDate>Tue, 14 Feb 2023 00:00:00 +1000</pubDate>
+            <pubDate>Tue, 14 Feb 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Steoreoscopic displays: Introduction</title>
             <link>https://locxter.github.io/articles/stereoscopic-display-introduction.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/stereoscopic-display-introduction.html</guid>
-            <pubDate>Fri, 10 Feb 2023 00:00:00 +1000</pubDate>
+            <pubDate>Fri, 10 Feb 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Steoreoscopic displays: Teaser</title>
             <link>https://locxter.github.io/articles/steoreoscopic-displays-teaser.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/steoreoscopic-displays-teaser.html</guid>
-            <pubDate>Sat, 28 Jan 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sat, 28 Jan 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Some thoughts on honesty in friend- and relationships</title>
             <link>https://locxter.github.io/articles/some-thoughts-on-honesty-in-friend-and-relationships.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/some-thoughts-on-honesty-in-friend-and-relationships.html</guid>
-            <pubDate>Thu, 19 Jan 2023 00:00:00 +1000</pubDate>
+            <pubDate>Thu, 19 Jan 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>A few notes on my wisdom teeth removal</title>
             <link>https://locxter.github.io/articles/a-few-notes-on-my-wisdom-teeth-removal.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/a-few-notes-on-my-wisdom-teeth-removal.html</guid>
-            <pubDate>Sun, 15 Jan 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sun, 15 Jan 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>On the beauty of biking</title>
             <link>https://locxter.github.io/articles/on-the-beauty-of-biking.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/on-the-beauty-of-biking.html</guid>
-            <pubDate>Sat, 7 Jan 2023 00:00:00 +1000</pubDate>
+            <pubDate>Sat, 7 Jan 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Embracing Rust and Svelte in 2023</title>
             <link>https://locxter.github.io/articles/embracing-rust-and-svelte-in-2023.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/embracing-rust-and-svelte-in-2023.html</guid>
-            <pubDate>Sat, 31 Dec 2022 00:00:00 +1000</pubDate>
+            <pubDate>Sat, 31 Dec 2022 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Why programming is an essential skill</title>
             <link>https://locxter.github.io/articles/why-programming-is-an-essential-skill.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/why-programming-is-an-essential-skill.html</guid>
-            <pubDate>Thu, 22 Dec 2022 00:00:00 +1000</pubDate>
+            <pubDate>Thu, 22 Dec 2022 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Fixing the Arduino IDE on Ubuntu 20.04/22.04</title>
             <link>https://locxter.github.io/articles/fixing-the-arduino-ide-on-ubuntu-20042204.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/fixing-the-arduino-ide-on-ubuntu-20042204.html</guid>
-            <pubDate>Wed, 14 Dec 2022 00:00:00 +1000</pubDate>
+            <pubDate>Wed, 14 Dec 2022 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Enhancing Standard Notes with external packages</title>
             <link>https://locxter.github.io/articles/enhancing-standard-notes-with-external-packages.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/enhancing-standard-notes-with-external-packages.html</guid>
-            <pubDate>Mon, 12 Dec 2022 00:00:00 +1000</pubDate>
+            <pubDate>Mon, 12 Dec 2022 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>My take on distro hopping</title>
             <link>https://locxter.github.io/articles/my-take-on-distro-hopping.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/my-take-on-distro-hopping.html</guid>
-            <pubDate>Sat, 3 Dec 2022 00:00:00 +1000</pubDate>
+            <pubDate>Sat, 3 Dec 2022 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>The state of fractional scaling on Linux</title>
             <link>https://locxter.github.io/articles/the-state-of-fractional-scaling-on-linux.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/the-state-of-fractional-scaling-on-linux.html</guid>
-            <pubDate>Sun, 27 Nov 2022 00:00:00 +1000</pubDate>
+            <pubDate>Sun, 27 Nov 2022 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>My FOSS journey</title>
             <link>https://locxter.github.io/articles/my-foss-journey.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/my-foss-journey.html</guid>
-            <pubDate>Tue, 22 Nov 2022 00:00:00 +1000</pubDate>
+            <pubDate>Tue, 22 Nov 2022 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Adding comments with giscus</title>
             <link>https://locxter.github.io/articles/adding-comments-with-giscus.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/adding-comments-with-giscus.html</guid>
-            <pubDate>Sun, 20 Nov 2022 00:00:00 +1000</pubDate>
+            <pubDate>Sun, 20 Nov 2022 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Hello world!</title>
             <link>https://locxter.github.io/articles/hello-world.html</link>
             <author>locxter</author>
             <guid>https://locxter.github.io/articles/hello-world.html</guid>
-            <pubDate>Sat, 19 Nov 2022 00:00:00 +1000</pubDate>
+            <pubDate>Sat, 19 Nov 2022 00:00:00 +0100</pubDate>
         </item>
     </channel>
 </rss>
@@ -343,14 +343,14 @@ Nov
 Dec
 
 Time correction:
-Summer time: +2000
-Winter time: +1000
+Summer time: +0200
+Winter time: +0100
 
 <item>
     <title></title>
     <link>https://locxter.github.io/</link>
     <author>locxter</author>
     <guid>https://locxter.github.io/</guid>
-    <pubDate>Sun, 1 Jan 2023 00:00:00 +1000</pubDate>
+    <pubDate>Sun, 1 Jan 2023 00:00:00 +0100</pubDate>
 </item>
 -->
