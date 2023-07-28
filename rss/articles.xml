@@ -9,6 +9,12 @@
         <lastBuildDate>Fri, 21 Jul 2023 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.github.io/rss/articles.xml" rel="self" type="application/rss+xml" />
         <item>
+            <title>A plea against hostile architecture</title>
+            <link>https://locxter.github.io/articles/a-plea-against-hostile-architecture.html</link>
+            <guid>https://locxter.github.io/articles/a-plea-against-hostile-architecture.html</guid>
+            <pubDate>Fri, 28 Jul 2023 00:00:00 +0200</pubDate>
+        </item>
+        <item>
             <title>Some impressions of working with Unity</title>
             <link>https://locxter.github.io/articles/some-impressions-of-working-with-unity.html</link>
             <guid>https://locxter.github.io/articles/some-impressions-of-working-with-unity.html</guid>
