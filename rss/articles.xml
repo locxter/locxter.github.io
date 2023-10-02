@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2023 locxter</copyright>
-        <lastBuildDate>Thu, 21 Sep 2023 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Mon, 02 Oct 2023 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.github.io/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>A personal note on technology dependence</title>
+            <link>https://locxter.github.io/articles/a-personal-note-on-technology-dependence.html</link>
+            <guid>https://locxter.github.io/articles/a-personal-note-on-technology-dependence.html</guid>
+            <pubDate>Mon, 02 Oct 2023 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Process optimization isn't always worth it</title>
             <link>https://locxter.github.io/articles/process-optimization-isnt-always-worth-it.html</link>
