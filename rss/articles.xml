@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2023 locxter</copyright>
-        <lastBuildDate>Sat, 18 Nov 2023 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sat, 25 Nov 2023 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.github.io/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>A few thoughts on bucket lists and now pages</title>
+            <link>https://locxter.github.io/articles/a-few-thoughts-on-bucket-lists-and-now-pages.html</link>
+            <guid>https://locxter.github.io/articles/a-few-thoughts-on-bucket-lists-and-now-pages.html</guid>
+            <pubDate>Sat, 25 Nov 2023 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Mind your unfair advantage and personal success system</title>
             <link>https://locxter.github.io/articles/mind-your-unfair-advantage-and-personal-success-system.html</link>
