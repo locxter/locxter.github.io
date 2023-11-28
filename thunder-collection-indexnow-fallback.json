@@ -1,6 +1,6 @@
 {
     "client": "Thunder Client",
-    "collectionName": "IndexNow locxter.net",
+    "collectionName": "IndexNow locxter.github.io",
     "dateExported": "2023-04-13T14:41:19.826Z",
     "version": "1.1",
     "folders": [],
@@ -10,7 +10,7 @@
             "colId": "00705fac-38da-4c10-9423-7105d9cfd528",
             "containerId": "",
             "name": "api.indexnow.org",
-            "url": "https://yandex.com/indexnow?url=https://locxter.net&key=16d87fe5436f4f3a977a3b0690211f69",
+            "url": "https://yandex.com/indexnow?url=https://locxter.github.io&key=16d87fe5436f4f3a977a3b0690211f69",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-04-13T14:38:47.946Z",
@@ -19,7 +19,7 @@
             "params": [
                 {
                     "name": "url",
-                    "value": "https://locxter.net",
+                    "value": "https://locxter.github.io",
                     "isPath": false
                 },
                 {
@@ -35,7 +35,7 @@
             "colId": "00705fac-38da-4c10-9423-7105d9cfd528",
             "containerId": "",
             "name": "www.bing.com",
-            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=16d87fe5436f4f3a977a3b0690211f69",
+            "url": "https://api.indexnow.org/indexnow?url=https://locxter.github.io&key=16d87fe5436f4f3a977a3b0690211f69",
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-04-13T14:38:55.916Z",
@@ -44,7 +44,7 @@
             "params": [
                 {
                     "name": "url",
-                    "value": "https://locxter.net",
+                    "value": "https://locxter.github.io",
                     "isPath": false
                 },
                 {
@@ -60,7 +60,7 @@
             "colId": "00705fac-38da-4c10-9423-7105d9cfd528",
             "containerId": "",
             "name": "search.seznam.cz",
-            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=16d87fe5436f4f3a977a3b0690211f69",
+            "url": "https://api.indexnow.org/indexnow?url=https://locxter.github.io&key=16d87fe5436f4f3a977a3b0690211f69",
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-04-13T14:39:40.148Z",
@@ -69,7 +69,7 @@
             "params": [
                 {
                     "name": "url",
-                    "value": "https://locxter.net",
+                    "value": "https://locxter.github.io",
                     "isPath": false
                 },
                 {
@@ -85,7 +85,7 @@
             "colId": "00705fac-38da-4c10-9423-7105d9cfd528",
             "containerId": "",
             "name": "yandex.com",
-            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=16d87fe5436f4f3a977a3b0690211f69",
+            "url": "https://api.indexnow.org/indexnow?url=https://locxter.github.io&key=16d87fe5436f4f3a977a3b0690211f69",
             "method": "GET",
             "sortNum": 35000,
             "created": "2023-04-13T14:39:43.509Z",
@@ -94,7 +94,7 @@
             "params": [
                 {
                     "name": "url",
-                    "value": "https://locxter.net",
+                    "value": "https://locxter.github.io",
                     "isPath": false
                 },
                 {
