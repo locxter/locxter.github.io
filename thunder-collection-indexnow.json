@@ -10,7 +10,7 @@
             "colId": "00705fac-38da-4c10-9423-7105d9cfd528",
             "containerId": "",
             "name": "api.indexnow.org",
-            "url": "https://yandex.com/indexnow?url=https://locxter.net&key=16d87fe5436f4f3a977a3b0690211f69",
+            "url": "https://yandex.com/indexnow?url=https://locxter.net&key=ca663d5592e045b39a6bd594771671e5",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-04-13T14:38:47.946Z",
@@ -24,7 +24,7 @@
                 },
                 {
                     "name": "key",
-                    "value": "16d87fe5436f4f3a977a3b0690211f69",
+                    "value": "ca663d5592e045b39a6bd594771671e5",
                     "isPath": false
                 }
             ],
@@ -35,7 +35,7 @@
             "colId": "00705fac-38da-4c10-9423-7105d9cfd528",
             "containerId": "",
             "name": "www.bing.com",
-            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=16d87fe5436f4f3a977a3b0690211f69",
+            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=ca663d5592e045b39a6bd594771671e5",
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-04-13T14:38:55.916Z",
@@ -49,7 +49,7 @@
                 },
                 {
                     "name": "key",
-                    "value": "16d87fe5436f4f3a977a3b0690211f69",
+                    "value": "ca663d5592e045b39a6bd594771671e5",
                     "isPath": false
                 }
             ],
@@ -60,7 +60,7 @@
             "colId": "00705fac-38da-4c10-9423-7105d9cfd528",
             "containerId": "",
             "name": "search.seznam.cz",
-            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=16d87fe5436f4f3a977a3b0690211f69",
+            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=ca663d5592e045b39a6bd594771671e5",
             "method": "GET",
             "sortNum": 30000,
             "created": "2023-04-13T14:39:40.148Z",
@@ -74,7 +74,7 @@
                 },
                 {
                     "name": "key",
-                    "value": "16d87fe5436f4f3a977a3b0690211f69",
+                    "value": "ca663d5592e045b39a6bd594771671e5",
                     "isPath": false
                 }
             ],
@@ -85,7 +85,7 @@
             "colId": "00705fac-38da-4c10-9423-7105d9cfd528",
             "containerId": "",
             "name": "yandex.com",
-            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=16d87fe5436f4f3a977a3b0690211f69",
+            "url": "https://api.indexnow.org/indexnow?url=https://locxter.net&key=ca663d5592e045b39a6bd594771671e5",
             "method": "GET",
             "sortNum": 35000,
             "created": "2023-04-13T14:39:43.509Z",
@@ -99,7 +99,7 @@
                 },
                 {
                     "name": "key",
-                    "value": "16d87fe5436f4f3a977a3b0690211f69",
+                    "value": "ca663d5592e045b39a6bd594771671e5",
                     "isPath": false
                 }
             ],
