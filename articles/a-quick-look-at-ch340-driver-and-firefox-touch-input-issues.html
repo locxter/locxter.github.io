@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at CH340 driver and Firefox touch input issues | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at CH340 driver and Firefox touch input issues</h2>
+            <h3>2023-12-10</h3>
+            <p>
+                I'm currently rather busy with a new, secret-for-now project of mine and just don't have the time to
+                write a proper article right now, so you'll have to do with this quick look addressing some computer
+                issues I recently had. I'm personally running Linux Mint 21.2 right now, but from personal experience
+                these problems affect almost all distributions and the fixes should therefore be rather universal...
+            </p>
+            <p>
+                If you have ever worked with cheap Arduino clones or other development boards from China, you're likely
+                familiar with the famous CH340 USB to serial adapter. I still remember what a pain it was to get it
+                running under Windows, but even here on the good side of operating systems we have to deal with an
+                annoying bug. If you plug a device with this chip in, it won't show up in your IDE and when you take a
+                look at the
+                <code>lsusb</code>
+                logs, you'll see that it indeed briefly shows up and then just disappears, which is even more confusing.
+                As it turns out, the correct driver for this chip is actually included in most Linux kernels, but gets
+                blocked by the braille display driver
+                <code>brltty</code>
+                . So, here's what to do:
+            </p>
+            <ol>
+                <li>Check whether you need a braille display due to visual impairment.</li>
+                <li>
+                    If the answer is yes, just buy an other device with a different USB to serial adapter - you won't
+                    easily get your current one working.
+                </li>
+                <li>
+                    If the answer is no, simply purge the conflicting braille display driver via your package manager.
+                    On Debian based systems run
+                    <code>sudo apt purge brltty</code>
+                    to do so.
+                </li>
+            </ol>
+            <p>
+                The second issue I want to address regards Firefox's ability to deal with touchscreens on Linux. You
+                see, I personally run a ThinkPad X390 Yoga for mobile work and note-taking with it's stylus and use the
+                touchscreen occasionally to browse the web for facts and such while jotting down thoughts. By default,
+                Firefox treats your touch input like any other mouse and therefore requires you to use the tiny
+                scrollbar on the side and click links with your primary action button, which just isn't possible with
+                your fingers. Luckily, there also is a rather easy fix for it:
+            </p>
+            <ol>
+                <li>
+                    Open
+                    <code>about:config</code>
+                    and change the value of the property
+                    <code>dom.w3c_touch_events.enabled</code>
+                    from
+                    <code>2</code>
+                    to
+                    <code>1</code>
+                    .
+                </li>
+                <li>Close firefox and open a terminal with root privileges.</li>
+                <li>
+                    Append the line
+                    <code>MOZ_USE_XINPUT2 DEFAULT=1</code>
+                    to
+                    <code>/etc/security/pam_env.conf</code>
+                    .
+                </li>
+                <li>Reboot your system and you should be good to go.</li>
+            </ol>
+            <p>
+                These issues are obviously really specific, but if they annoy me there is at least a chance that they
+                will also annoy some other people on the internet. If you are one of them and I was able to help you,
+                feel free to leave a comment down below. Have a lovely day and I'll be back next week with a regular
+                article...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2023 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>

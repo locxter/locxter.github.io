@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2023 locxter</copyright>
-        <lastBuildDate>Sat, 02 Dec 2023 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 10 Dec 2023 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>A quick look at CH340 driver and Firefox touch input issues</title>
+            <link>https://locxter.net/articles/a-quick-look-at-ch340-driver-and-firefox-touch-input-issues.html</link>
+            <guid>https://locxter.net/articles/a-quick-look-at-ch340-driver-and-firefox-touch-input-issues.html</guid>
+            <pubDate>Sun, 10 Dec 2023 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>On the difference between accomplishing something and moving the needle</title>
             <link>https://locxter.net/articles/on-the-difference-between-accomplishing-something-and-moving-the-needle.html</link>
