@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2023 locxter</copyright>
-        <lastBuildDate>Sun, 17 Dec 2023 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 22 Dec 2023 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+                <item>
+            <title>On the contrast between the good individual and evil systems</title>
+            <link>https://locxter.net/articles/on-the-contrast-between-the-good-individual-and-evil-systems.html</link>
+            <guid>https://locxter.net/articles/on-the-contrast-between-the-good-individual-and-evil-systems.html</guid>
+            <pubDate>Fri, 22 Dec 2023 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Perfection is an illusion</title>
             <link>https://locxter.net/articles/perfection-is-an-illusion.html</link>
