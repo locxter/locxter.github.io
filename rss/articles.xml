@@ -5,62 +5,68 @@
         <link>https://locxter.net/articles.html</link>
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
-        <copyright>2022 - 2023 locxter</copyright>
-        <lastBuildDate>Fri, 29 Dec 2023 00:00:00 +0200</lastBuildDate>
+        <copyright>2022 - 2024 locxter</copyright>
+        <lastBuildDate>Fri, 05 Jan 2024 00:00:00 +0100</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Everything is figureoutable</title>
+            <link>https://locxter.net/articles/everything-is-figureoutable.html</link>
+            <guid>https://locxter.net/articles/everything-is-figureoutable.html</guid>
+            <pubDate>Fri, 05 Jan 2023 00:00:00 +0100</pubDate>
+        </item>
         <item>
             <title>Looking back at 2023 and forward to the new year</title>
             <link>https://locxter.net/articles/looking-back-at-2023-and-forward-to-the-new-year.html</link>
             <guid>https://locxter.net/articles/looking-back-at-2023-and-forward-to-the-new-year.html</guid>
-            <pubDate>Fri, 29 Dec 2023 00:00:00 +0200</pubDate>
+            <pubDate>Fri, 29 Dec 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>On the contrast between the good individual and evil systems</title>
             <link>https://locxter.net/articles/on-the-contrast-between-the-good-individual-and-evil-systems.html</link>
             <guid>https://locxter.net/articles/on-the-contrast-between-the-good-individual-and-evil-systems.html</guid>
-            <pubDate>Fri, 22 Dec 2023 00:00:00 +0200</pubDate>
+            <pubDate>Fri, 22 Dec 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Perfection is an illusion</title>
             <link>https://locxter.net/articles/perfection-is-an-illusion.html</link>
             <guid>https://locxter.net/articles/perfection-is-an-illusion.html</guid>
-            <pubDate>Sun, 17 Dec 2023 00:00:00 +0200</pubDate>
+            <pubDate>Sun, 17 Dec 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>A quick look at CH340 driver and Firefox touch input issues</title>
             <link>https://locxter.net/articles/a-quick-look-at-ch340-driver-and-firefox-touch-input-issues.html</link>
             <guid>https://locxter.net/articles/a-quick-look-at-ch340-driver-and-firefox-touch-input-issues.html</guid>
-            <pubDate>Sun, 10 Dec 2023 00:00:00 +0200</pubDate>
+            <pubDate>Sun, 10 Dec 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>On the difference between accomplishing something and moving the needle</title>
             <link>https://locxter.net/articles/on-the-difference-between-accomplishing-something-and-moving-the-needle.html</link>
             <guid>https://locxter.net/articles/on-the-difference-between-accomplishing-something-and-moving-the-needle.html</guid>
-            <pubDate>Sat, 02 Dec 2023 00:00:00 +0200</pubDate>
+            <pubDate>Sat, 02 Dec 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>A few thoughts on bucket lists and now pages</title>
             <link>https://locxter.net/articles/a-few-thoughts-on-bucket-lists-and-now-pages.html</link>
             <guid>https://locxter.net/articles/a-few-thoughts-on-bucket-lists-and-now-pages.html</guid>
-            <pubDate>Sat, 25 Nov 2023 00:00:00 +0200</pubDate>
+            <pubDate>Sat, 25 Nov 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>Mind your unfair advantage and personal success system</title>
             <link>https://locxter.net/articles/mind-your-unfair-advantage-and-personal-success-system.html</link>
             <guid>https://locxter.net/articles/mind-your-unfair-advantage-and-personal-success-system.html</guid>
-            <pubDate>Sat, 18 Nov 2023 00:00:00 +0200</pubDate>
+            <pubDate>Sat, 18 Nov 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>How neural hacks can improve your productivity</title>
             <link>https://locxter.net/articles/how-neural-hacks-can-improve-your-productivity.html</link>
             <guid>https://locxter.net/articles/how-neural-hacks-can-improve-your-productivity.html</guid>
-            <pubDate>Fri, 10 Nov 2023 00:00:00 +0200</pubDate>
+            <pubDate>Fri, 10 Nov 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>A brief guide on time management</title>
             <link>https://locxter.net/articles/a-brief-guide-on-time-management.html</link>
             <guid>https://locxter.net/articles/a-brief-guide-on-time-management.html</guid>
-            <pubDate>Fri, 03 Nov 2023 00:00:00 +0200</pubDate>
+            <pubDate>Fri, 03 Nov 2023 00:00:00 +0100</pubDate>
         </item>
         <item>
             <title>How to succeed at what really matters to you</title>
