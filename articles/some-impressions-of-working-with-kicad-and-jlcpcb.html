@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Some impressions of working with KiCad and JLCPCB | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Some impressions of working with KiCad and JLCPCB</h2>
+            <h3>2024-01-14</h3>
+            <p>
+                For a still secret project of mine I have some electronics that need to be needly put together and quite
+                sturdy, so using my regular perfboards wasn't an option as it always ends up looking messy and is rather
+                fragile. After another of the omnipresent ads for one of the Chinese PCB manufacturers, I decided to
+                just give designing and ordering such a board a chance and want to share some of my experiences with you
+                in this article...
+            </p>
+            <p>
+                Like I'm used to from 3D printing, everything starts off with a digital model - this time not in a CAD,
+                but in a so-called EDA (Electronic Design Automation) software. There are countless viable programs out
+                there and some manufacturers even provide their own online software, which makes the whole process
+                incredibly accessible, but I decided to go with the tried and true KiCad due to its open source nature
+                and plenty of guides for it on YouTube and in their own documentation. Before I go any further, I should
+                probably mention that I'm not a complete novice in terms of electronics design, but my only experience
+                also was with the really restrictive Fritzing project and dates quite some years back - so I would still
+                consider me a beginner in this. With that background, I was ready for a few really painful hours working
+                my way through tutorials (which was the reason I procrastinated on it for some weeks), but this didn't
+                really turn out to be necessary.
+            </p>
+            <p>
+                Once you open KiCad, you're first required so create a project folder into which all of the schematics
+                and PCB designs alongside automatic backups are stored. From there you first have to create your
+                schematic, which was quite a breeze for me, since I already had a working prototype on a breadboard and
+                the interface for choosing components as well as connecting them is rather intuitive. The hardest part
+                turned out to be adding the components which aren't already in the extensive catalogue shipped with the
+                program, but you're likely to find these easily online for popular parts like the ESP32 D1 Mini or can
+                create them yourself either based on some other component, from scratch or with a scan image as
+                reference. Especially this last option really surprised me positively, since advanced features like this
+                are usually missing in FOSS programs being only available in slow and costly proprietary software.
+            </p>
+            <p>
+                Overall, I spent roughly 10 hours designing my first PCB. That might sound like much, but actually is
+                quite quick considering I had to replicate my schematic, search or design the footprints for multiple
+                components, create the rather complicated shape of the board and last but certainly not least route all
+                the connections with multiple vias and groundplanes on both sides. More importantly, it also wasn't a
+                tedious process, which involved fighting with arbitrary limitations of the programs, but felt empowering
+                and more like a creative task than anything else. I even managed to get into a real flow state at some
+                point, which is usually something I only achieve while programming and on good days during CAD design.
+                Rounding off this really nice experience, was the incredibly easy Gerber export for manufacturing, which
+                only needed a few clicks and worked without hiccups.
+            </p>
+            <p>
+                This is a perfect transition to talk about my impressions of ordering the boards at JLCPCB. This isn't
+                sponsored or anything, but as every sane individual does I compared a few different options including
+                PCBWay as well as AISLER and for my specific board with the rather unusual dimensions of 70x240mm JLCPCB
+                offered by far the cheapest price. However, in terms of the quote process all performed really well with
+                the option to upload your zipped Gerber files, tweak some options and get an instant offer from there.
+                Getting back to JLCPCB, I sticked with the simple 2 layer 1.6mm FR4 option, but opted for a black solder
+                mask, since it looked really cool in the preview and turned out even better in reality - a definitive
+                recommendation, especially as it doesn't cost anything extra. Based on how quickly you need your boards,
+                you have the option to select priority manufacturing and express delivery, but I didn't need either and
+                my boards arrived within just 8 days from the delivery with the regular 3-4 day build time and
+                EuroPacket shipment - nice. The latter one is rather interesting, since JLCPCB collects orders from one
+                country until a whole pallet is full, then delivers it to a distribution center in the destination
+                country by plane and uses the local postal service for the last part to the customer resulting in a
+                cheap and easy import process, which also manages to be surprisingly quick.
+            </p>
+            <p>
+                Obiously, I have only done a single order from them, so this is my very personal experience and nowhere
+                near representative, but from what I could gather, I can only highly recommend giving this whole process
+                a try yourself. As always, feel free to use a different EDA software and/or manufacturer, experiment
+                with different options (as I certainly will in the future too) and be ready for possible
+                disappointments. However,
+                <strong>
+                    the industry overall has made such huge leaps forward in the last few years (just like in the 3D
+                    printing world) that designing and building your own circuit boards is easier, cheaper and more fun
+                    then ever
+                </strong>
+                . So, you really don't have much to lose and it will be a fun learning experience for sure. Like, share
+                and comment if you want and we'll hear from each other next week again...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
