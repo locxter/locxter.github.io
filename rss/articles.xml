@@ -6,15 +6,20 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Fri, 10 Mar 2024 00:00:00 +0100</lastBuildDate>
+        <lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0100</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>A quick look at party boxes</title>
+            <link>https://locxter.net/articles/a-quick-look-at-party-boxes.html</link>
+            <guid>https://locxter.net/articles/a-quick-look-at-party-boxes.html</guid>
+            <pubDate>Sun, 17 Mar 2024 00:00:00 +0100</pubDate>
+        </item>
         <item>
             <title>All operating systems are somewhat shitty</title>
             <link>https://locxter.net/articles/all-operating-systems-are-somewhat-shitty.html</link>
             <guid>https://locxter.net/articles/all-operating-systems-are-somewhat-shitty.html</guid>
-            <pubDate>Fri, 10 Mar 2024 00:00:00 +0100</pubDate>
+            <pubDate>Sun, 10 Mar 2024 00:00:00 +0100</pubDate>
         </item>
-        <item>
         <item>
             <title>On the value of well-being in stressful times</title>
             <link>https://locxter.net/articles/on-the-value-of-well-being-in-stressful-times.html</link>
