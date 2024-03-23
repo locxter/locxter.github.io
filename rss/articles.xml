@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sun, 17 Mar 2024 00:00:00 +0100</lastBuildDate>
+        <lastBuildDate>Sat, 23 Mar 2024 00:00:00 +0100</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Looking back at a year of XFCE + BSPWM</title>
+            <link>https://locxter.net/articles/looking-back-at-a-year-of-xfce-bspwm.html</link>
+            <guid>https://locxter.net/articles/looking-back-at-a-year-of-xfce-bspwm.html</guid>
+            <pubDate>Sat, 23 Mar 2024 00:00:00 +0100</pubDate>
+        </item>
         <item>
             <title>A quick look at party boxes</title>
             <link>https://locxter.net/articles/a-quick-look-at-party-boxes.html</link>

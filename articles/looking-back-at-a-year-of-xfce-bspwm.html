@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Looking back at a year of XFCE + BSPWM | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="stylesheet" href="../styles/figure.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Looking back at a year of XFCE + BSPWM</h2>
+            <h3>2024-03-23</h3>
+            <p>
+                About a year ago I presented my XFCE + BSPWM desktop setup to you and pitched it as the ultimate balance
+                between tiling awesomeness and convenience (at least for me). Thanks to daily driving it since then, I
+                have now gathered quite a lot of impressions about it I just couldn't have foreseen, want to share the
+                good as well as the bad and explain why I am moving to something else despite still liking it. So, let's
+                get started...
+            </p>
+            <p>
+                As a small disclaimer before we really get going, I want to note that I installed Linux Mint XFCE the
+                first time for this setup and thus can't put my finger on whether or not some of the problems I
+                encountered are a result of my wanky setup or just XFCE's or this Mint variant's fault. But to be
+                totally honest with you, I also didn't expect to stick around with it for so long and even enjoy the
+                ride, which is a positive achievement on its own and more than many convential setups were able to do
+                for me. Here is what my latest XFCE + BSPWM setup looks like:
+            </p>
+            <figure>
+                <img
+                    src="../images/articles/looking-back-at-a-year-of-xfce-bspwm/xfce-bspwm-blank.png"
+                    alt="XFCE + BSPWM blank desktop"
+                />
+                <figcaption>XFCE + BSPWM blank desktop</figcaption>
+            </figure>
+            <figure>
+                <img
+                    src="../images/articles/looking-back-at-a-year-of-xfce-bspwm/xfce-bspwm-tiled.png"
+                    alt="XFCE + BSPWM tiled windows"
+                />
+                <figcaption>XFCE + BSPWM tiled windows</figcaption>
+            </figure>
+            <figure>
+                <img
+                    src="../images/articles/looking-back-at-a-year-of-xfce-bspwm/xfce-bspwm-floating.png"
+                    alt="XFCE + BSPWM floating windows"
+                />
+                <figcaption>XFCE + BSPWM floating windows</figcaption>
+            </figure>
+            <p>
+                Overall, I can comfortably say that it was a really good decision to go through the hassle of setting up
+                this rather uncommon combination and that it is very usable for the most part, most of the times. All of
+                the software components on their own never let me down and as I'm used to from Linux Mint and
+                Ubuntu/Debian as its base they were supremely stable. What you could really notice however (and even
+                foresee thinking about it now) is that the interaction and cooperation of these not meant to be combined
+                pieces of software easily leads to hickups and misbehaviour, especially in edge conditions. XFCE on the
+                one hand sometimes just doesn't know what to do when a different window manager from it's internal XFWM
+                is running and BSPWM on the other hand sometimes just lacks the necessary information from XFCE to
+                behave properly.
+            </p>
+            <p>
+                The most prominent example I have is handling hot-plugging external displays to my laptop. I already
+                declared a dedicated workspace for the HDMI port in my BSPWM config and thus once a display gets
+                connected an additional workspace is initialized - so far so good. The madness starts to happen once the
+                display is disconnected though, as the additional workspace remains available with the apps on it
+                without a way of seeing them - the only possibility I have is to move over to it and transfer the
+                windows to another one with keyboard shortcuts, this works but is just really clunky. Even worse for me
+                personally is the fact that I have a workspace visualizer in the top bar and it gets unbearingly big
+                once an external display is connected due to the fact that such a screen is always positioned virtually
+                right, which doubles the with of every individual workspace preview - ending up filling my entire top
+                bar.
+            </p>
+            <p>
+                I know that by writing some custom scripts or even just configuring the setup further these issues can
+                be fixed, but due to their rare occurance I don't feel like they are worth spending that amount of time
+                on and they fall into this unpleasat valley of really annoying me, but not to such a regular extent to
+                change anything about them. And these issues also aren't the only ones I had the pleasure to experience.
+                Want to use an external hot-plugged display as your primary monitor? Good luck with figuring that out, I
+                didn't (want to). Oh, you want or need to use some Java applications? You better tell them what theme to
+                use because they don't start up otherwise or are unusable. You care about workspace naming? Too bad that
+                XFWM isn't installed and you can't change it. Need to use an application that uses floating windows by
+                design? Better set up some exception beforehand.
+            </p>
+            <p>
+                The list goes on, but as you can see most of these issues aren't fundamental, but more quality of life
+                related. I can get and have got quite some work done with them, but they just annoy me and over the last
+                month or so I really wanted to use something a little more "friendly". I have gotten so used to
+                automatic window tiling however that by now this is an absolutely essential feature for me, which
+                narrowed the available alternatives down quite a bit. Besides customizing macOS with Amethyst or yabai,
+                which might be a story for another day, it narrowed down to customized GNOME on Debian or Ubuntu with
+                the Forge extension or Pop!_OS from System76 with their already customized GNOME shell and upcoming
+                COSMIC desktop, which looks likely to be/become my dream setup - so I went with the latter one.
+            </p>
+            <p>
+                Setting it up was rather painless as the system base is the same Ubuntu 22.04 LTS I am currently using,
+                configuring the desktop with dconf was also a pleasure and I swear that my intention wasn't to mimic
+                macOS. But build your own opinion from these pictures:
+            </p>
+            <figure>
+                <img
+                    src="../images/articles/looking-back-at-a-year-of-xfce-bspwm/pop-blank.png"
+                    alt="Pop!_OS blank desktop"
+                />
+                <figcaption>Pop!_OS blank desktop</figcaption>
+            </figure>
+            <figure>
+                <img
+                    src="../images/articles/looking-back-at-a-year-of-xfce-bspwm/pop-tiled.png"
+                    alt="Pop!_OS tiled windows"
+                />
+                <figcaption>Pop!_OS tiled windows</figcaption>
+            </figure>
+            <figure>
+                <img
+                    src="../images/articles/looking-back-at-a-year-of-xfce-bspwm/pop-floating.png"
+                    alt="Pop!_OS floating windows"
+                />
+                <figcaption>Pop!_OS floating windows</figcaption>
+            </figure>
+            <p>
+                With that said, I really happy with this new setup (for now), love its usability and polish and am
+                looking forward to how long it will please me. As always, feel free to share you thoughts in the
+                comments down below and have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
