@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at OSX-KVM and quickemu | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at OSX-KVM and quickemu</h2>
+            <h3>2024-04-07</h3>
+            <p>
+                For last week's article had and was also very curious to try out various macOS tools and utilities. But
+                how the heck do you do that without physical access to a Mac from a friend or relative? As it turns out
+                there are two quite enjoyably easy solutions when running Linux as you main OS, so let's take a quick
+                look...
+            </p>
+            <p>
+                First things first, we are talking about virtualization here, so don't expect near native performance,
+                especially in the graphics department. With some more work, you can indeed pass through PCIE devices
+                such as graphics cards, but this requires additional configuration and completely dedicates the device
+                to the VM making it not available to the host anymore. Nonetheless, virtualization is a great way to try
+                out new operating systems, execute software you don't fully trust or just experiment with possibly
+                breaking changes without affecting your production system.
+            </p>
+            <p>
+                Like always in the Linux section of virtualization, both of these projects build on top of the awesome
+                <a href="https://www.qemu.org/">QEMU</a>
+                virtualizer in conjunction with KVM (Kernel-based Virtual Machine) technology - so check whether or not
+                your device supports hardware accelerated virtualization for optimal performance. Legality is another
+                controversial aspect of virtualization for some closed-source operating systems, so do your research and
+                don't take anything here as legal advice.
+            </p>
+            <p>
+                Let's start with
+                <a href="https://github.com/quickemu-project/quickemu">quickemu</a>
+                as it is the more universal software of the two. Originally developed by Ubuntu Mate lead Martin
+                Wimpress, it has become a great community effort to make virtualization everything from countless Linux
+                distributions and Android over Windows 10/11 to macOS easy and straightforward. Especially together with
+                its graphical frontend
+                <a href="https://github.com/quickgui/quickgui">quickgui</a>
+                it is beginner friendly and very portable. Sadly, it didn't work for me when trying to virtualize modern
+                versions of macOS, but that might just have something to do with my wanky setup.
+            </p>
+            <p>
+                An a little bit more involved alternative is the
+                <a href="https://github.com/kholia/OSX-KVM">OSX-KVM</a>
+                project, which allows for much more customization, but is also exclusively terminal based. This might
+                sound a little intimidating at first, but still should be rather managable with the great guides
+                provided, allows for even easier customization and opens the door to really advanced setups. This one
+                worked first try for me and allowed me to try out the software I was interested in, albeit still with
+                some caveats. As expected 3D acceleration was nowhere to be seen, but other graphical issues like all
+                the browsers I tried not being able to properly render websites made using the system a real challenge
+                at times.
+            </p>
+            <p>
+                Overall, I am really thankful that these projects even exist, not just because they are technologically
+                impressive, but because the also have a real use case (mostly building and testing software) and can
+                thus make the life of certain people much easier. If you have a spare minute, feel free to give them a
+                try and have a little fun, but don't be upset in case they don't work first try...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
