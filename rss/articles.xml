@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sun, 07 Apr 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 14 Apr 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Seamingly neglegible aspects can have huge influence on our behaviour</title>
+            <link>https://locxter.net/articles/seamingly-neglegible-aspects-can-have-huge-influence-on-our-behaviour.html</link>
+            <guid>https://locxter.net/articles/seamingly-neglegible-aspects-can-have-huge-influence-on-our-behaviour.html</guid>
+            <pubDate>Sun, 14 Apr 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>A quick look at OSX-KVM and quickemu</title>
             <link>https://locxter.net/articles/a-quick-look-at-osx-kvm-and-quickemu.html</link>
