@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sun, 14 Apr 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 21 Apr 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Fixing snap theming on Pop!_OS 22.04</title>
+            <link>https://locxter.net/articles/fixing-snap-theming-on-pop-os-2204.html</link>
+            <guid>https://locxter.net/articles/fixing-snap-theming-on-pop-os-2204.html</guid>
+            <pubDate>Sun, 21 Apr 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Seamingly neglegible aspects can have huge influence on our behaviour</title>
             <link>https://locxter.net/articles/seamingly-neglegible-aspects-can-have-huge-influence-on-our-behaviour.html</link>

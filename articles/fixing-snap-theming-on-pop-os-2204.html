@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Fixing snap theming on Pop!_OS 22.04 | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Fixing snap theming on Pop!_OS 22.04</h2>
+            <h3>2024-04-21</h3>
+            <p>
+                I know that the snap packaging format is rather controversial and for the most part rightly so (startup
+                times really are a bummer), but unlike Flatpaks and AppImages it has the ability to fully integrate with
+                the system like regular applications from your distributions repositiories, which makes a really handy
+                tool to safely install development tools like Node.js, IntelliJ IDEA or Android Studio and keep them up
+                to date. Unfortunately, some other GTK-based apps I installed didn't manage to pick up my native GTK
+                theme, but once I've understood the cause of this issue, it's actually rather easy to fix...
+            </p>
+            <p>
+                As you probably know, snap packages are a sandboxed application format by heart, which means that they
+                provide their own environment to run in, which is completely separate from your system files by default.
+                This greatly increases security, makes dependency collisions (different apps requiring different
+                versions of the same library or tool) an issue of the past as multiple versions can coexist and helps to
+                keep your system clean by only placing its files in its dedicated space. However, this strategy also
+                makes nearly all apps unusable by default, since almost all of them require some kind of further
+                interaction with the system than just being allowed to run - this can range from file access to load and
+                store data over network communication to hardware access for serial communcation and the like. The
+                clever solution for this challenge is to provide regulated access via defined, revokable portals, which
+                allows apps to request needed permissions, while keeping the user in full control.
+            </p>
+            <p>
+                In the snap world such portals are called connections and these also include theming related ones, which
+                explains the lack of proper theming by default. Most apps don't bother to explicitly request the right
+                to access the user's theming and thus look out of place from an UI perspective. Luckily, this can be
+                fixed with the following steps:
+            </p>
+            <ul>
+                <li>
+                    Install the GTK common themes package, which exports the GTK and icon themes used on various Linux
+                    distro, with
+                    <code>sudo snap install gtk-common-themes</code>
+                    . This provides somewhat of a base layer of theming, which was missing on at least one of my
+                    installations.
+                </li>
+                <li>
+                    Select a packaged theme on
+                    <a href="https://snapcraft.io/search?q=gtk+theme">snapcraft.io</a>
+                    for your system. For Pop!_OS 22.04 simply install the fitting one with
+                    <code>sudo snap install pop-themes</code>
+                    .
+                </li>
+                <li>
+                    Connect all your installed apps to all aspects of the theming with the following three commands. You
+                    will have to replace `pop-themes` with name of your installed theme, if you didn't install the theme
+                    mentioned above:
+                    <ul>
+                        <li>
+                            GTK 2 theme:
+                            <code>
+                                for i in $(snap connections | grep gtk-common-themes:gtk-3-themes | awk '{print $2}');
+                                do sudo snap connect $i pop-themes:gtk-3-themes; done
+                            </code>
+                        </li>
+                        <li>
+                            GTK 3 theme:
+                            <code>
+                                for i in $(snap connections | grep gtk-common-themes:gtk-2-themes | awk '{print $2}');
+                                do sudo snap connect $i pop-themes:gtk-2-themes; done
+                            </code>
+                        </li>
+                        <li>
+                            Icon theme:
+                            <code>
+                                for i in $(snap connections | grep gtk-common-themes:icon-themes | awk '{print $2}'); do
+                                sudo snap connect $i pop-themes:icon-themes; done
+                            </code>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>
+                With that done, restart your system and all your GTK-based applications should now look perfectly in
+                place on your Pop!_OS installation. Feel free to share your experience with snap theming in the comments
+                down below and have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
