@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sun, 21 Apr 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 26 Apr 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Building an all in one file syncing, backup and VPN solution based on Tailscale</title>
+            <link>https://locxter.net/articles/building-an-all-in-one-file-syncing-backup-and-vpn-solution-based-on-tailscale.html</link>
+            <guid>https://locxter.net/articles/building-an-all-in-one-file-syncing-backup-and-vpn-solution-based-on-tailscale.html</guid>
+            <pubDate>Fri, 26 Apr 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Fixing snap theming on Pop!_OS 22.04</title>
             <link>https://locxter.net/articles/fixing-snap-theming-on-pop-os-2204.html</link>

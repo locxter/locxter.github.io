@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Building an all in one file syncing, backup and VPN solution based on Tailscale | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Building an all in one file syncing, backup and VPN solution based on Tailscale</h2>
+            <h3>2024-04-26</h3>
+            <p>
+                Like many other IT guys, I'm quite deep into creating backups of my files and following the 3-2-1 rule
+                for securing my data (at least 3 copies of your data on at least 2 different storage mediums with at
+                least 1 off-site backup) . But with me moving to a quite far city later this year, I had to redesign my
+                current setup. So, let's take a look at the challenges I had to face and how Tailscale helped me to
+                solve them easily...
+            </p>
+            <p>
+                Currently I'm syncing the files between my fully encrypted all-SSD laptop and desktop in a peer-to-peer
+                manner using Syncthing and then daily create 2 mirrored backups on larger HDDs, one of which is
+                permanently mounted in my desktop and one of which is portable to store at an off-site location if
+                necessary. This only really meets the 3 and 2 part of the 3-2-1 rule, but has worked really well for me
+                in the last couple of years and crucially only requires a minimal amount of storage capacity (and thus
+                costs). When I move to another city however, I will leave my desktop at home and buy a second laptop
+                (likely a MacBook Pro, shame on me), which changes the situations quite a bit. I still need to sync my
+                files between two primary devices (the two laptops), but will also have a third one (my desktop)
+                available as an off-site server with the ability to store versioned backups. The only big question is:
+                How the hack can I access this server in a fast, easy and most importantly secure way?
+            </p>
+            <p>
+                Well, the easiest answer would be to simply use Syncthing's relay server infrastructure to route my
+                encrypted data from peer to peer over the internet. This sounds really nice and requires zero additonal
+                setup, but has never ever worked for me in my extensive testing (or only with really slow speeds of
+                severals kilobytes). And honestly, I don't feel quite comfortable to route the data I invest so much
+                effort to keep secure in over some random relay servers hosted by volunteers with questionable security
+                practices. The next logical alternative is a virtual private network (VPN) to connect remotely to my
+                home network. This certainly works and is rather easy to setup with the FRITZ!Box router we are using at
+                home, but requires you to setup a static domain via a dynamic DNS service for easy access and exposes
+                the whole network, which can be handy, but is way overkill for me.
+            </p>
+            <p>
+                This is where Tailscale comes to the rescue as it is an easy solution to built secure and flexible
+                software-defined virtual networks. If this doesn't mean anything to you, let's just say that it allows
+                you to flexibely connect individual devices together across physical network constraints without much
+                setup and in a very secure manner. The majority of its source code is open source and for individual use
+                it's even free, which makes it a perfect fit for my use case. The plan is to simply install the
+                Tailscale client on all my devices, connect them together in a virtual network and configure my desktop
+                a bit to work as a server (ssh access and the ability to run as an exit node). This will allow me to
+                continue syncing my files peer-to-peer via Syncthing, run local backups of the synced data as I desire
+                and even connect to my home network like any old VPN to use as a secure tunnel for internet access on
+                public WiFis and the like. Here how to replicate my exact setup:
+            </p>
+            <ol>
+                <li>
+                    Create a
+                    <a href="software-defined mesh virtual private network">Tailscale account</a>
+                    using your favorite identity provider (I chose GitHub)
+                </li>
+                <li>
+                    Download Tailscale on all your devices following
+                    <a href="https://tailscale.com/download">their instructions</a>
+                </li>
+                <li>
+                    <a href="https://tailscale.com/kb/1028/key-expiry">Disable key expiry</a>
+                    on all the devices you feel comfortable doing so (at least the server) for more comfort (you don't
+                    have to reauthenticate frequently)
+                </li>
+                <li>
+                    Make sure all your individual devices are interconnected with Syncthing and able to communicate (if
+                    necessary, open your firewall for it via
+                    <code>sudo ufw allow syncthing</code>
+                    )
+                </li>
+                <li>
+                    Disable the options
+                    <code>Global Discovery</code>
+                    and
+                    <code>Enable Relaying</code>
+                    in the
+                    <code>Connections</code>
+                    tab of Synthing settings to make sure that your devices only communicate via the local or Tailscale
+                    network
+                </li>
+                <li>
+                    Test whether or not Synthing still works with your devices on different networks - if that's all you
+                    want, you can stop here
+                </li>
+                <li>
+                    Since Tailscale networks are self-confined by default, you have to configure the server as an exit
+                    node following
+                    <a href="https://tailscale.com/kb/1103/exit-nodes?tab=linux">these instructions</a>
+                    in order to use your Tailnet as a regular VPN
+                </li>
+                <li>
+                    If you are running a recent version of Tailscale and Linux kernel 6.2 or later, it is also worth to
+                    optimize the server's network configuration following
+                    <a href="https://tailscale.com/kb/1320/performance-best-practices#ethtool-configuration">
+                        this guide
+                    </a>
+                </li>
+                <li>
+                    Now you can
+                    <a href="https://tailscale.com/kb/1103/exit-nodes?tab=linux#step-4-use-the-exit-node">
+                        use the exit node
+                    </a>
+                    like any other VPN if necessary
+                </li>
+                <li>
+                    If your server is running a regular desktop distribution like mine does, you should remember to
+                    disable all automatic suspend or sleep features via your system settings (since otherwise it won't
+                    continue to run with no input and displays connected) and install a SSH server for easier management
+                    via
+                    <code>sudo apt install openssh-server</code>
+                    and
+                    <code>sudo ufw allow ssh</code>
+                </li>
+                <li>
+                    Finally, set up all the local backup solutions you like and configure them to run regularly on their
+                    own (I do daily backups with Déjà Dup on the server)
+                </li>
+            </ol>
+            <p>
+                With that done, you now have a beautifully simple and secure all in one file syncing, backup and VPN
+                solution based on Tailscale. This setup works beautifully for me and I'm very curious to hear from your
+                experiences with Tailscale as well, so feel free to share them in the comments down below and have a
+                lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
