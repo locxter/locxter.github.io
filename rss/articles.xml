@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Fri, 26 Apr 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 05 May 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>My definitive guide to note-taking and exam preparation in school</title>
+            <link>https://locxter.net/articles/my-definitive-guide-to-note-taking-and-exam-preparation-in-school.html</link>
+            <guid>https://locxter.net/articles/my-definitive-guide-to-note-taking-and-exam-preparation-in-school.html</guid>
+            <pubDate>Sun, 05 May 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Building an all in one file syncing, backup and VPN solution based on Tailscale</title>
             <link>https://locxter.net/articles/building-an-all-in-one-file-syncing-backup-and-vpn-solution-based-on-tailscale.html</link>
