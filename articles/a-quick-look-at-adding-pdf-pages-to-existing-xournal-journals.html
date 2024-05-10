@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at adding PDF pages to existing Xournal++ journals | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at adding PDF pages to existing Xournal++ journals</h2>
+            <h3>2024-05-10</h3>
+            <p>
+                After talking about Xournal++ as my software of choice for handwritten notes in last weeks article, I
+                noticed that I have never publicly mentioned how to add PDF pages to existing journals, which sadly
+                isn't a functionality provided out of the box by Xournal++. So, let's change that...
+            </p>
+            <p>
+                When working with PDF backgrounds, there are really three ways to handle them. The easiest is to simply
+                open the PDF you want to edit with Xournal++, but this limits you to just this single PDF. The second
+                approach is to open Xournal++, select
+                <code>Annotate PDF</code>
+                and open the PDF from there, which at least creates a dedicated .xopp project file, but still isn't
+                compatible with the hack I'm about to present.
+                <strong>The way to do it</strong>
+                is to go through the
+                <code>Annotate PDF</code>
+                menu and select your PDF, but also check the
+                <code>Attach file to the journal</code>
+                option, which will create a
+                <code>filename.xopp.bg.pdf</code>
+                file alongside your usual journal that stores the background PDF pages.
+            </p>
+            <p>
+                Since Xournal++ doesn't provide thhe functionality to add pages to this background file after creating
+                it, we have to get a little creative with some BASH scripting. The GNOME file manager Nautilus has
+                support for so-called custom scripts (just like Thunar and most other file explorer on Linux) allowing
+                you to simply select the PDF file you want to append as well as the journal you want to append it to and
+                execute my script from the right-click menu, which makes this janky solution actually rather usuable.
+                Once you have executed the script, simply restart Xournal++ and add your new pages like any other PDF
+                page. Here are some instruction on how to setup this custom script:
+            </p>
+            <ul>
+                <li>
+                    Make sure you have
+                    <code>poppler-utils</code>
+                    installed, since it provides the terminal-based PDF editing software used by my script
+                </li>
+                <li>
+                    Navigate to
+                    <code>~/.local/share/nautilus/scripts/</code>
+                    and create a file called
+                    <code>add-pdf-to-xopp.sh</code>
+                    in the folder
+                </li>
+                <li>
+                    Added the following content to the script file:
+                    <pre><code>#!/bin/bash<br />for FILE in $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS<br />do<br />    TYPE=$(echo $FILE | grep -P -o ".*\K\..*")<br />    if [[ $TYPE == .xopp ]]<br />    then<br />        TARGET=$(basename $FILE)<br />        TARGET+=".bg.pdf"<br />    else<br />        SOURCES+=$FILE<br />        SOURCES+=" "<br />    fi<br />done<br />pdfunite $TARGET $SOURCES .pdfunite-tmp.pdf<br />mv .pdfunite-tmp.pdf $TARGET</code></pre>
+                </li>
+                <li>
+                    Make the script executable via
+                    <code>chmod +x ./add-pdf-to-xopp.sh</code>
+                </li>
+                <li>Have fun using this hack ;)</li>
+            </ul>
+            <p>
+                I know that this is a rather niche problem, but hopefully it is helpful to at least someone other than
+                me - if so, the time writing it was already worth it. As always, feel free to share your thoughts and
+                experiences in the comments down below and have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
