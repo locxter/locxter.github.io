@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sat, 18 May 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 24 May 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>The ARM laptop game is heating up</title>
+            <link>https://locxter.net/articles/the-arm-laptop-game-is-heating-up.html</link>
+            <guid>https://locxter.net/articles/the-arm-laptop-game-is-heating-up.html</guid>
+            <pubDate>Fri, 24 May 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Reflecting on my Abitur exams</title>
             <link>https://locxter.net/articles/reflecting-on-my-abitur-exams.html</link>
