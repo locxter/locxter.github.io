@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Fri, 31 May 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Fri, 07 Jun 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Sometimes less is more</title>
+            <link>https://locxter.net/articles/sometimes-less-is-more.html</link>
+            <guid>https://locxter.net/articles/sometimes-less-is-more.html</guid>
+            <pubDate>Fri, 07 Jun 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Taking a break from tracking stuff</title>
             <link>https://locxter.net/articles/taking-a-break-from-tracking-stuff.html</link>
