@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Optimizing battery life under Linux with TLP | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Optimizing battery life under Linux with TLP</h2>
+            <h3>2024-06-23</h3>
+            <p>
+                As an average consumer, we take quite a lot of tedious tuning and optimization of the tech products we
+                use for granted. One area that is especially sensible to this is battery life, since there always is
+                only a limited amount of energy stored in the physical cells installed in a device and modern CPUs offer
+                quite fine control over their allowed power budgets and sleep modes, which opens the door for amazing
+                power savings and thus extended runtimes. Since I have been running Linux as my exclusive desktop
+                operating systems mostly on laptops (used ThinkPads to be specific) for quite a few years now , I have
+                more than a bit of experience with utter lack of this optimization and terrible battery life. Luckily,
+                there's a tool to at least somewhat improve the situation...
+            </p>
+            <p>
+                First and foremost, I want to make it clear that this article isn't meant to bash against Linux on
+                mobile devices or anything remotely related. I truly love Linux as well as its free and open source
+                nature and run it personally on all device I reasonably can. But as mentioned above, getting great
+                battery life out of a device requires many man-hours of tuning, which is something the manufacturer can
+                easily invest, but that's almost impossible to achieve for a community project like Linux with its
+                various distributions, desktop environments and ultimately countless different devices to run on. Thus
+                it's just natural that the battery life of most laptops will suffer quite a bit by running Linux, even
+                though it is clearly less resource hungry than other operating systems (I'm looking at you, Microsoft)
+                unless the manufacturer also spent little to no time tuning the software.
+            </p>
+            <p>
+                The situations has certainly improved over the last few years with the inclusion of power profile
+                daemons in Gnome and KDE as well as quite solid sleep-state support for some models, but it still is far
+                away from meeting the in this regard seemless experience of the OS a device ships with. Thankfully,
+                there is the command-line power management utility
+                <a href="https://github.com/linrunner/TLP">TLP</a>
+                , which optimizes the power consumption of various components of the system with great default settings
+                that allow for an "install and forget" use case while also offering many fine controls for advanced
+                tweeking. Personally, I haven't spent the time on any of my device to fine-tune TLP's settings, but just
+                the defaults already provide such a meaningful improvement (at least on the hardware I run) that any
+                further optimization seems like a diminishing returns situation to me. Under the hood, TLP doesn't do
+                anything not possible otherwise, but almost perfects the challenge of abstracting the technical details
+                while still providing granular control. Here's how to get started with it:
+            </p>
+            <ul>
+                <li>
+                    Install the main program via
+                    <code>sudo apt install tlp</code>
+                    (optionally there is also a radio device component called
+                    <code>tlp-rdw</code>
+                    available)
+                </li>
+                <li>
+                    Enable the service to start on boot with
+                    <code>sudo systemctl enable tlp</code>
+                </li>
+                <li>
+                    Restart your system or start TLP with
+                    <code>sudo systemctl start tlp</code>
+                </li>
+                <li>
+                    That's it, enjoy your improved battery runtime or tweek it even further following the official
+                    <a href="https://linrunner.de/tlp/support/optimizing.html">optimization guide</a>
+                </li>
+            </ul>
+            <p>
+                With that said, I hope you enjoyed this small article, as always feel free to share your thoughts in the
+                comments down below and have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
