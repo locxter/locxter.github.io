@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sun, 23 Jun 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sat, 29 Jun 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>It's hard to overcome today's upselling strategies</title>
+            <guid>https://locxter.net/articles/its-hard-to-overcome-todays-upselling-strategies.html</guid>
+            <link>https://locxter.net/articles/its-hard-to-overcome-todays-upselling-strategies.html</link>
+            <pubDate>Sat, 29 Jun 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Optimizing battery life under Linux with TLP</title>
             <link>https://locxter.net/articles/optimizing-battery-life-under-linux-with-tlp.html</link>
