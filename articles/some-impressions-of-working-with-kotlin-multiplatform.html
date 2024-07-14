@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Some impressions of working with Kotlin Multiplatform | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Some impressions of working with Kotlin Multiplatform</h2>
+            <h3>2024-07-14</h3>
+            <p>
+                Some of you might know that I have failed to adopt Rust as my primary programming language replacing
+                good-old C++ and instead fallen for Kotlin, which is an amazing modern replacement for Java with new
+                features such as null-safety, immutable variables and type inference. However, until recently I have
+                only ever developed desktop applications using their specific GUI toolkits (GTKmm for C++ and Swing for
+                Java/Kotlin), but always wanted to delve into the world of cross-platform development. Here how my
+                journey went and what impressions I have gathered by working with Kotlin Multiplatform...
+            </p>
+            <p>
+                The first thing to do was obviously to determine what cross-platform toolkit and language I should use.
+                Most prominently there are the JavaScript-based solutions like React Native, Electron and Ionic out
+                there, but these were almost instantly out of the question, since I personally hate web development,
+                they only offer really limited support for platform-native functionality and for the most part only
+                stretch across platforms horizontally (all mobile platforms + web, but not desktop or vice versa). Then
+                there is .NET MAUI from Microsoft and Flutter from Google, which offer much greater functionality and
+                have been quite battle-proven over the last few years. But I really don't want to rely on any Microsoft
+                toolkit, quite dislike C# as a cheap Java clone and .NET MAUI doesn't support Linux as a target
+                platform, so it's disqualified as well. Flutter on the other hand seems much more promising and has a
+                good reputation, but sadly uses its own programming language Dart, which looks quite well designed, but
+                I would have to learn it first and thus lock myself rather tightly into this ecosystem. This made it my
+                "if nothing else works, I'll go with it"-choice, but I first wanted to further investigate Qt with
+                multiplatform support and Kotlin Multiplatform. On the one hand, Qt is a really amazing toolkit, powers
+                lots of commercial (mostly embedded) systems and super stable, but also has a really steep learning
+                curve and seemed somewhat daunting to me, so I wasn't to keen on using it. On the other hand, there's
+                Kotlin Multiplatform, which uses my beloved Kotlin programming language, allows for seemless integration
+                with platform-specific code to any extent, but also offers a cross-platform UI framework that's
+                basically a port of Jetpack Compose, which all the Android developers I know love. So that's what I went
+                with, since I can start developing my app from a fully multiplatform target and add all the
+                platform-specific functionality seemlessly in once I start to hit limitations. In an extreme case, this
+                means that I can write the business logic code for cross-platform, but keep all the UI and IO code
+                native to provide an optimal experience and flexibility - which sounds nothing short of amazing.
+            </p>
+            <p>
+                Setup was smooth just having to download Android Studio, install the Kotlin Multiplatform plugin and use
+                their online wizard for creating a project to run on desktop and Android. I should probably note here,
+                that shared UI for iOS still is in beta and the web target even in alpha, but the JetBrains team is
+                actively working on these and since they aren't of any interest to me (I only care about all three
+                desktop platforms and Android), I decided to use it anyway. Working my way through the example projects
+                and tutorials, I quickly discovered that Jetpack Compose truly is an amazing UI toolkit, with modern
+                functionality, developer friendly async support and a pleasing default look. Connecting to native code
+                via the
+                <code>expect</code>
+                and
+                <code>actual</code>
+                system for declaring functions is also really painless and works super well. Even Kotlin Multipform
+                library support was suprisingly good for everything I needed (mostly API interactions via the network,
+                settings storage and databases), but in case there isn't a cross-platform one available you can of
+                course still choose native ones and connect them to your multiplatform code - nice. All of this creates
+                an easy to use, productive and capable cross-platform toolkit that allows you to build projects of any
+                size and complexity with the amount of shared code + libraries that is right for your needs.
+            </p>
+            <p>
+                However, not everything was perfect in my experience - indeed quite the opposite sometimes. I already
+                said that some targets aren't stable yet, but the on-going development is much deeper than this with
+                some fundamental functionality still missing or being experimental, which means not usable in a
+                production environment in either case from my perspective. This includes not being able to use seemingly
+                basic UI components like a dropdown, time or date picker, which requires you to build your own clunky
+                components that are much more error prone and just shouldn't need to exist. Futhermore, even the
+                official navigation and routing library (artifact
+                <code>org.jetbrains.androidx.navigation:navigation-compose</code>
+                ) is still in an experimental state, so I had to use the excellent community library
+                <a href="https://voyager.adriel.cafe/">Voyager</a>
+                , which works exceptionally well, is easy to use and provides all the functionality I could want - but
+                again this just shouldn't be necessary. And so far I probably only have scratched the surface, since
+                there are even more workarounds needed for certain functionality. What I want to say is that you
+                shouldn't expect a fully polished and stable product to rely on with your billion dollar business quite
+                yet. It's really impressive what the JetBrains team has pulled of in the last couple of years (like
+                replacing Java with Kotlin as the officially recommended language for Android development), Kotlin
+                Multiplatform is already nicely usable for the most part and it's only getting better with each day. By
+                choosing it, you are investing somewhat into promises and future capabilities however, which is
+                something you should only do if you can already live with its current state and don't depend on these
+                promises.
+            </p>
+            <p>
+                All in all, I'm having a great time with Kotlin Multiplatform (even) right now, really enjoy running my
+                code on desktop as well as mobile with minimal to no changes and truly believe that they will get
+                everything working as well as stable in the next one or two years, which is something I can live with
+                for my hobby projects. If you are searching for a cross-platform toolkit yourself, certainly give Kotlin
+                Multiplatform a go and feel free to share your thoughts and experiences in the comments down below. With
+                that said, have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
