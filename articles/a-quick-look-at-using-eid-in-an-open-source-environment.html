@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at using eID in an open source environment | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at using eID in an open source environment</h2>
+            <h3>2024-07-17</h3>
+            <p>
+                Recently I had to use the new eID functionality of my German ID card to identify myself in order to open
+                a new bank account and was amazed that I got it working in my open source environment with Linux as my
+                desktop operating system and CalyxOS (or any other custom Android ROM without Google Play Services for
+                that matter) on my phone after a bit of trial and error. We should certainly discuss whether we as a
+                society want an online ID system and what implications it has (security vulnerabilities, public
+                surveillance etc.), but this isn't the topic of today's article. Instead I want to share my tried and
+                tested method of actually using eID in an open source environment...
+            </p>
+            <p>
+                First and foremost, huge props to the German government for developing the AusweisApp, which is the
+                official eID client and reference implementation, as open source with all the code available on
+                <a href="https://github.com/Governikus/AusweisApp">GitHub</a>
+                . Even crazier is that they haven't just published it in the popular desktop and mobile app stores, but
+                also on
+                <a href="https://f-droid.org/en/packages/com.governikus.ausweisapp2/">F-Droid</a>
+                and in the package repositories of many Linux distributions as shown on
+                <a href="https://www.ausweisapp.bund.de/open-source-software">their website</a>
+                . This really cross-platform approach also explains why it doesn't rely on any Google Play Services to
+                run, which is a nice exception in a world where you have to live without many helpful apps if you are
+                unwilling to use Google proprietary spy services and exactly how a public entity like a government
+                should develop software. Since there still is some feature-breaking development of the app going on and
+                not every way of installation as well as usage will work, here is what has proven to be reliable for me:
+            </p>
+            <ul>
+                <li>
+                    Install the Android app via
+                    <a href="https://f-droid.org/en/packages/com.governikus.ausweisapp2/">F-Droid</a>
+                    and make sure that your smartphone supports NFC via the integrated self-check functionality (
+                    <code>Check device and ID card</code>
+                    option).
+                </li>
+                <li>
+                    Install the desktop app via
+                    <a href="https://flathub.org/apps/de.bund.ausweisapp.ausweisapp2">Flathub</a>
+                    to ensure you have the newest version and disable your firewall (for UFW via
+                    <code>sudo ufw disable</code>
+                    ) if it is running for the duration of the eID identification process.
+                </li>
+                <li>
+                    Connect your smartphone to your desktop as a card reader with the following steps:
+                    <ul>
+                        <li>
+                            Select the
+                            <code>Card reader</code>
+                            tab in the mobile app and hit
+                            <code>Enable NFC</code>
+                            .
+                        </li>
+                        <li>
+                            Then select
+                            <code>Pair device</code>
+                            on your phone and go into
+                            <code>Settings</code>
+                            and then the
+                            <code>Smartphone as card reader</code>
+                            menu on your desktop.
+                        </li>
+                        <li>
+                            Select your device that's showing up under
+                            <code>Add pairing</code>
+                            and enter the pairing code displayed on your phone.
+                        </li>
+                        <li>
+                            If you have restarted the phone app in between, make sure to select
+                            <code>Allow connection</code>
+                            in the
+                            <code>Card reader</code>
+                            tab before proceeding.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Now check that everything works by selecting the
+                    <code>See my personal data</code>
+                    menu point on your desktop and following the instructions.
+                </li>
+                <li>
+                    Finally, navigate to your desired eID authentification use case, select the
+                    <code>Use AusweisApp</code>
+                    option or how it's called and follow the instructions. Everything should work now and once done you
+                    should be redirected back to where you started and get a success message.
+                </li>
+            </ul>
+            <p>
+                With that said, I hope you found this article helpful even though the eID functionality is still rather
+                rarely used. Feel free to share your thoughts and opinions in the comments down below and have a lovely
+                day.
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
