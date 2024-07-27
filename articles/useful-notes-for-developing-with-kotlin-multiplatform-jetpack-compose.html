@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Useful notes for developing with Kotlin Multiplatform + Jetpack Compose | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Useful notes for developing with Kotlin Multiplatform + Jetpack Compose</h2>
+            <h3>2024-07-27</h3>
+            <p>
+                Since I'm working rather intensely with Kotlin Multiplatform for my current project BotvacCenter
+                including all its benefits and drawbacks, I have accumulated quite some valuable knowledge about it as
+                well its underlying Jetpack Compose UI framework. Thus, I want to share some of the knowledge I have
+                struggled to find resources about with you in this post. It's rather a gathering of small notes than a
+                continuous article, but hopefully still somewhat useful to someone out there...
+            </p>
+            <h3>Cross-platform settings</h3>
+            <p>
+                Almost any application needs to store some settings like username, encrypted password et cetera, but the
+                implementations of settings storage is often platform dependent, which makes it an unnecessary hustle
+                when working with a multiplatform project. Thankfully, the accordingly named
+                <a href="https://github.com/russhwolf/multiplatform-settings">Multiplatform Settings</a>
+                library exists, which implements a common way of persisting key-value data aka settings. By default, you
+                have to still write some platform-specific code to get it working, but the author was so kind to also
+                develop the
+                <code>no-arg</code>
+                module, which takes care of everything platform-specific and allows you to write your entire settings
+                logic in
+                <code>commonMain</code>
+                . Simply include the correct dependency described in the
+                <a href="https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file#no-arg-module">
+                    README
+                </a>
+                and get started with the
+                <a href="https://github.com/russhwolf/multiplatform-settings?tab=readme-ov-file#settings-api">
+                    easy-to-use API
+                </a>
+                . Personally, I like to develop a custom settings controller for all my project to handle reading and
+                writing my application's settings, but this library makes it so easy that it almost becomes unnecessary
+                boilerplate code - nice.
+            </p>
+            <h3>Install and use debug + release builds alongside each other</h3>
+            <p>
+                When developing a new feature for an already mature application, it can be really handy to run the
+                current debug build you're working on alongside a stable release version. Even cooler, you can easily
+                expand this concept of differentiating the debug from the release version to the displayed app name and
+                icon. Here's how to do it:
+            </p>
+            <ul>
+                <li>
+                    Go into your
+                    <code>build.gradle.kts</code>
+                    and create a
+                    <code>debug</code>
+                    variant under
+                    <code>buildTypes</code>
+                    .
+                </li>
+                <li>
+                    Then add
+                    <code>applicationIdSuffix = ".debug"</code>
+                    to this new variant in order to give debug builds a different application ID and thus allow them to
+                    coexist with release builds. You can change the suffix to anything you like.
+                </li>
+                <li>
+                    To customize your application name and icon, create the folders
+                    <code>src/androidRelease</code>
+                    and
+                    <code>src/androidDebug</code>
+                    alongside your existing
+                    <code>src/androidMain</code>
+                    to store the specific icon and app name for both build variants.
+                </li>
+                <li>
+                    Simply copy your existing resources folder
+                    <code>res</code>
+                    from
+                    <code>androidMain</code>
+                    over to
+                    <code>androidRelease</code>
+                    to get started and make sure that you only include the relevant folders for the icon (
+                    <code>drawable</code>
+                    and various
+                    <code>mipmap</code>
+                    folders) as well as the
+                    <code>values/strings.xml</code>
+                    file storing your application name.
+                </li>
+                <li>
+                    Then use the
+                    <code>New/Image Asset</code>
+                    dialog to add your modified debug icon to
+                    <code>androidDebug</code>
+                    , copy over
+                    <code>values/strings.xml</code>
+                    and change the
+                    <code>app_name</code>
+                    attribute to your desired debug app name.
+                </li>
+                <li>
+                    Now release and debug variants should produce differently named applications with different icons.
+                </li>
+            </ul>
+            <h3>Dropdown and time picker</h3>
+            <p>
+                For some stupid reason Kotlin Multiplatform still doesn't include stable dropdown or time picker UI
+                components, which forces you to build your own solution. I don't want to praise my implementation as
+                superior to anything else, but feel free to have a look at my
+                <a
+                    href="https://github.com/locxter/BotvacCenter/blob/main/composeApp/src/commonMain/kotlin/gui/components/Dropdown.kt"
+                >
+                    dropdown
+                </a>
+                and
+                <a
+                    href="https://github.com/locxter/BotvacCenter/blob/main/composeApp/src/commonMain/kotlin/gui/components/TimePicker.kt"
+                >
+                    time picker
+                </a>
+                components, that are surprisingly simple and haven't let me down.
+            </p>
+            <h3>Dark mode</h3>
+            <p>
+                Last but certainly not least I want to share a dark mystery with you - I'm talking about implementing
+                dark mode with Kotlin Multiplatform, which is something I failed miserably at multiple times, before
+                finally succeeding with a simple trick. You are most likely also wrapping the
+                <code>MaterialTheme</code>
+                composable around your actual UI code to give it the desired material styling. It also offers a
+                <code>colors</code>
+                attribute, which should turn the application into dark mode when setting it to the provided
+                <code>darkColors()</code>
+                palette. However, you will find that on desktop your application background still is white making
+                everything poorly legible, while on mobile everything looks good except for the loading screen still
+                being white. After lots of experimenting, here's the surprisingly simple solution to both of these
+                issues:
+            </p>
+            <ul>
+                <li>
+                    Simply wrap your UI code in a
+                    <code>Surface</code>
+                    composable to get the dark background on desktop resulting in this hierachy
+                    <code>MaterialTheme > Surface > Your UI code</code>
+                    .
+                </li>
+                <li>
+                    Go into
+                    <code>AndroidManifest.xml</code>
+                    and change the
+                    <code>android:theme</code>
+                    attribute to
+                    <code>@android:style/Theme.Black.NoTitleBar</code>
+                    .
+                </li>
+            </ul>
+            <p>
+                With that said, I have presented my most precious discoveries about Kotlin Multiplatform + Jetpack
+                Compose to you. Some of them aren't perfect for sure, but they have worked reliably for me so far and
+                that validates their existance in my mind, even if they are ugly. As always, feel free to share your
+                thoughts in the comments down below and have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
