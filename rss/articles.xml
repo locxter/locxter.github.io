@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sat, 27 Jul 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 04 Aug 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>My take on the Iterative Closest Point (ICP) algorithm for SLAM</title>
+            <guid>https://locxter.net/articles/my-take-on-the-iterative-closest-point-icp-algorithm-for-slam.html</guid>
+            <link>https://locxter.net/articles/my-take-on-the-iterative-closest-point-icp-algorithm-for-slam.html</link>
+            <pubDate>Sun, 04 Aug 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Useful notes for developing with Kotlin Multiplatform + Jetpack Compose</title>
             <guid>https://locxter.net/articles/useful-notes-for-developing-with-kotlin-multiplatform-jetpack-compose.html</guid>

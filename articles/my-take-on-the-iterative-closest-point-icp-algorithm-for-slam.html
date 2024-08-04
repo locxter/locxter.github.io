@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>My take on the Iterative Closest Point (ICP) algorithm for SLAM | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>My take on the Iterative Closest Point (ICP) algorithm for SLAM</h2>
+            <h3>2024-08-04</h3>
+            <p>
+                As I'm currently developing my own crude SLAM (Simultaneous Localization And Mapping) implementing as
+                part of BotvacCenter, I have to deal with a major problem greatly reducing the quality of my maps and
+                thus the overall experience of using the system. I'm talking about
+                <strong>open-loop pose estimates</strong>
+                for the robot based only on wheel odometry - in other words having to trust the motion system to exactly
+                take the robot to where it should be without any way of verifying or correction this information.
+                Luckily, the robot (a Neato Botvac D85 robot vacuum) also features a 2D LIDAR scanner providing
+                additional information with which we can (hopefully) fix this issue. The basis of my solution is the
+                rather popular Iterative Closest Point (ICP) algorithm, whose working principle I want to share with you
+                in this article...
+            </p>
+            <p>
+                To get everyone up to speed, here's a quick introduction to wheel odometry, pose estimation, 2D LIDAR
+                scanners and SLAM.
+                <strong>Wheel odometry</strong>
+                is a fancy term for measuring how much aka what distance the wheels driving a robot have moved, keeping
+                track of these values' changes by every movement and therefore being able to estimate where to robot
+                currently is and what direction it is facing relative to its starting position based on its mechanical
+                properties and drivetrain design. This process of always knowing the robot's position and orientation is
+                also known as
+                <strong>pose estimation</strong>
+                and can use a variety of inputs. One such more advanced input can be a
+                <strong>2D LIDAR scanner</strong>
+                . These usually consist of a rotating platform with an encoder, onto which a weak laser emitting pulses
+                of directed light outside the visible spectrum as well as a photodiode measuring the light intensity in
+                this spectrum are mounted, and some processing electronics. When the laser emits a pulse, it travels
+                through the room, hits an object and gets reflected back in the same direction to some extent. The
+                photodiode can measure when the reflected light is back where it started and by combining the time
+                difference between emission and detection as well as the speed of light in the given medium (usually
+                air) the electronics calculate how far away the object reflecting the laser is. By rapidly rotating this
+                distance measurement unit and knowing which direction it is currently facing via the encoder, such
+                distance measurements can be taken all around the LIDAR scanner resulting in cloud of polar coordinate
+                points sufficient for reconstructing a top-down view of the scanner's surrounding. Once we combine
+                multiple such scans of the surrounding with pose estimates for each scan, a global map of the area can
+                be built.
+                <strong>SLAM</strong>
+                describes exactly this process of simultaneously figuring out where the robot is as well as building a
+                map of the area and is considered a rather difficult computer science problem to solve sufficiently.
+            </p>
+            <p>
+                My current problem is that while I can trust the robot's wheels to exactly move the distance they are
+                supposed to, since they are controlled with encoders and thus I exactly know how much they have moved, I
+                can't trust the robot as a whole to have moved the distance it is supposed to, as wheel slip is a real
+                issue on some surfaces, the robot can be stopped by unpredicted obstacles et cetera. This issue becomes
+                more prominent the further the robot moves, because the difference between where it is and where it
+                thinks it is increases, and turns my somewhat neat maps into pseudo-random point clouds due to
+                increasing misalignment of new scans with the existing map. The best solution for this isn't to only
+                allow points being a certain distance apart and increase this distance for points further away from the
+                robot, which is what I have done so far to somewhat reduce the impact of this issue, but to somehow
+                check how far and in which direction the robot has actually moved. And this is where the
+                <strong>Iterative Closest Point (ICP)</strong>
+                algorithm finally comes into play.
+            </p>
+            <p>
+                My implementation takes two point clouds (LIDAR scans for example) labelled source and target as input,
+                minimizes the difference between the two clouds by translating as well as rotating the source to match
+                the target and finally returns the needed transformation. It does this by repeating the following three
+                steps until the error metric falls below a chosen threshold:
+                <strong>association, transformation and error evaluation</strong>
+                . The association step tries to find the representation of all source points in the target cloud by
+                associating each source point with its closest neighbour in the target cloud - this association isn't
+                always 100 % correct, but as long as the majority of points is matched correctly, the algorithm will
+                work successfully. For small datasets it's usually sufficient to simply use a brute-force search
+                iterating through all points, but for larger point clouds it is much faster to use
+                <a href="https://en.wikipedia.org/wiki/K-d_tree">k-d trees</a>
+                . In the transformation step, we then calculate the combination of translation and rotation needed to
+                align the source points with their matches found in the previous step and apply this transformation.
+                There are several ways of calculating the needed transformation, most of which first create a covariance
+                matrix M between the source and target, then calculate the needed rotation by performing
+                <a href="https://en.wikipedia.org/wiki/Singular_value_decomposition">
+                    Singular Value Decomposition (SVD)
+                </a>
+                on M and getting the dot product of U and V and estimate the needed translation as the difference
+                between the mean/centroid of both clouds. Finally, we calculate the error between the modified source
+                and target as the sum of the squared distances between the new source points and their closest matches
+                in target.
+            </p>
+            <p>
+                Besides using a different, less complex estimation technique I found in another ICP implementation for
+                calculating the transformation, I also implemented a crude solution to deal with
+                <strong>local minima</strong>
+                , which to my knowledge aren't handled in most ICP algorithms. Before even starting the main algorithm,
+                I firstly translate the source to the target's mean/centroid to roughly align both clouds and reduce the
+                distance between them. To overcome the local minima, I then simply run 10 iterations of the ICP
+                algorithm rotating the source set by 36 degrees between runs to make sure that I cover all possible
+                rotations. In the end, the transformation with the smallest error will be chosen. The algorithm also
+                stops once an iteration manages to undercut the error threshold and exists early in this case, thus not
+                producing any overhead in situations where a single ICP iteration manages to solve the problem. Coming
+                back to my problem at hand, I can use the ICP algorithm to calculate the pose transformation between the
+                robot's current LIDAR scan and its last scan and correct the pose estimate by the difference between the
+                wheel odometry's transformation and ICP algorithm's transformation. Of course, ICP also isn't the holy
+                grail for producing correct pose estimates (it struggles in long corridors due to similar scans all
+                along the way for example), but by combining its results with the wheel odometry in some way or another
+                (only use one for translation and the other for rotation, take the arithmetic average of both or
+                something more fancy) the error in pose estimation can be greatly reduced and that's what currently
+                matters to me. There are always better algorithms available, but they come with the cost of complexity
+                and my goal is to fully understand the SLAM stack I'm using, since this whole project is mostly a
+                learning opportunity.
+            </p>
+            <p>
+                With that said, I hope you found this article interesting and learned a thing or two. As always, feel
+                free to share your thoughts and experiences in the comments down below, consider checking out
+                <a href="https://github.com/locxter/BotvacCenter">BotvacCenter</a>
+                on GitHub and have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
