@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sat, 17 Aug 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>I was about to buy a Mac as a software developer, this is why I didn't</title>
+            <link>https://locxter.net/articles/i-was-about-to-buy-a-mac-as-a-software-developer-this-is-why-i-didnt.html</link>
+            <guid>https://locxter.net/articles/i-was-about-to-buy-a-mac-as-a-software-developer-this-is-why-i-didnt.html</guid>
+            <pubDate>Sun, 25 Aug 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Celebrating 100 articles</title>
             <guid>https://locxter.net/articles/celebrating-100-articles.html</guid>
