@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at why project documentation is key | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at why project documentation is key</h2>
+            <h3>2024-08-10</h3>
+            <p>
+                I love the spirit of open source and sharing code with the public to learn from or improve upon it is
+                truly a beautiful thing. However, when recently going through a bunch of GitHub repositories related to
+                ICP and SLAM I noticed one heart-breaking thing: a bunch of them aren't documented well or even at all.
+                That's why I want to talk about project documentation in this quick look and share my thoughts on why it
+                matters as well as what aspects are most important...
+            </p>
+            <p>
+                If you have ever worked on a more complex project than a simple "Hello, World!" program or basic
+                tutorial, you probably know that code can get quite complex and hard to read - especially when there
+                isn't any good reference to get inspiration from. Once you move on to another project and look at it a
+                year or so later, you will probably feel just as lost as I do when looking at my older projects and need
+                some time to get back into the topic. That's usually not a problem, but you as the author also have the
+                huge advantage of having understood the code at least once when you wrote it - this is something other
+                people don't have and exactly why project documentation matters. It's nice if you share your precious
+                source code, but if it's so hard to understand that it's literally easier to just write your own
+                implementation there really isn't any value in sharing it - which is a real tragedy, since making it
+                understandable isn't too hard.
+            </p>
+            <p>
+                The things that make working with someone else's projects unnecessarily hard and most annoy me are
+                mostly the following:
+            </p>
+            <ol>
+                <li>No README to explain what the project does and show some results</li>
+                <li>No dependency list or instructions to get it working</li>
+                <li>If it's a library, no examples to get started</li>
+                <li>Meaningless variable, function and class names like a, b, c</li>
+                <li>If the code isn't basic or self-explanatory, no comments to explain what happens</li>
+            </ol>
+            <p>Luckily, many of them can be fixed with little or even no additional time required:</p>
+            <ol>
+                <li>
+                    Before releasing any code to the public, think a few minutes about what your project should do and
+                    what features it should include and capture that in your README in one way or another. This doesn't
+                    only help others understand it better, but also sets some clear goals for you to work on.
+                </li>
+                <li>
+                    Especially if you plan to run your code on multiple machines or only from time to time, do yourself
+                    a favour and create a simple list of things to install and commands to run to get your project up
+                    and running. You use these countless times while developing it anyway, so copying them over to a
+                    prominent place (like a section in your README) isn't much work.
+                </li>
+                <li>
+                    If you are developing a library, you probably need to test it and have a use case for it - think
+                    about sharing at least a stripped-down version of these useful code sections as examples. As always,
+                    they don't have to be perfect or superbly pretty, but having them is really nice for others as well
+                    as testing new functionality without the complexity of your real integrations.
+                </li>
+                <li>
+                    I get it, especially in late-night sessions or after struggling to get something working, you can be
+                    quite tired and just create variables, functions et cetera with random names, because they have to
+                    have some name. But at least once it works, spend the minute or two using your IDE's refactoring
+                    tools to rename them to something meaningful that you can still understand in a week.
+                </li>
+                <li>
+                    This one is something I regularly struggle with myself, since I tell myself that my good naming of
+                    things makes my code quite easy to read. Nonetheless, consider adding a one-liner or two as comments
+                    to explain more complex sections of your code and especially difficult design decisions that aren't
+                    obvious.
+                </li>
+            </ol>
+            <p>
+                If you follow these five tips consistently, your code will not only be easy to understand, but your
+                project will also look a lot more professional when others look at it, which is always nice and good for
+                your reputation/portfolio. Don't overthink any of them though, since spending some consideration is
+                usually already enough and with that said, have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
