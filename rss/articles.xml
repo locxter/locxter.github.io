@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sun, 25 Aug 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sun, 01 Sep 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Music streaming is a mess, so here's how to use Spotify somewhat privacy-consciously</title>
+            <guid>https://locxter.net/articles/music-streaming-is-a-mess-so-heres-how-to-use-Spotify-somewhat-privacy-consciously.html</guid>
+            <link>https://locxter.net/articles/music-streaming-is-a-mess-so-heres-how-to-use-Spotify-somewhat-privacy-consciously.html</link>
+            <pubDate>Sun, 01 Sep 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>I was about to buy a Mac as a software developer, this is why I didn't</title>
             <link>https://locxter.net/articles/i-was-about-to-buy-a-mac-as-a-software-developer-this-is-why-i-didnt.html</link>

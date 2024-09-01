@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            Music streaming is a mess, so here's how to use Spotify somewhat privacy-consciously | locxter.net
+        </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Music streaming is a mess, so here's how to use Spotify somewhat privacy-consciously</h2>
+            <h3>2024-09-01</h3>
+            <p>
+                As a part of my privacy journey, I migrated away from Spotify years ago - mostly because I wasn't really
+                into listening to music back then and it didn't bother me much. But even then with low demands, finding
+                suitable alternatives wasn't easy and I switched services quite a few times. So let's talk about my
+                journey, why I think music streaming is a mess and how to use Spotify somewhat privacy-consciously,
+                which is what I do again right now...
+            </p>
+            <p>
+                Even for myself it's quite unbelievable, but I initially cared so little about music that I just
+                searched for some online radio stations playing nice electronic tunes and settled on listening to them
+                with basic platform-native clients (
+                <a href="https://gitlab.gnome.org/GNOME/rhythmbox">Rhythmbox</a>
+                for desktop and
+                <a href="https://github.com/segler-alex/RadioDroid">RadioDroid</a>
+                for my phone). On that note, I can recommend some channels from
+                <a href="https://www.sunshine-live.de/">SunshineLive</a>
+                ,
+                <a href="https://www.n-joy.de/index.html">N-JOY</a>
+                (especially their formats
+                <a href="https://www.n-joy.de/radio/sendungen/Neu-N-JOY-Club,njoyclub100.html">N-JOY Club</a>
+                and
+                <a
+                    href="https://www.n-joy.de/musik/N-JOY-Residents-Jeden-Freitag-und-Samstag-neue-DJ-Sets,residents100.html"
+                >
+                    N-JOY Residents
+                </a>
+                ) as well as
+                <a href="https://somafm.com/">SomaFM</a>
+                . About two years ago, I had enough of it though and wanted more control over the music I listen to, so
+                I started searching for a privacy-respecting music streaming service. Long story short, such a thing
+                just doesn't exist, but YouTube Music allows you to stream pretty much anything without having to
+                register. This makes for a solid base of privacy-focused frontends like
+                <a href="https://github.com/vfsfitvnm/ViMusic">ViMusic</a>
+                , which is a native Android application with lots of features and even the ability to store songs
+                locally on your device.
+            </p>
+            <p>
+                Therefore, ViMusic is what I used for well over a year with what I would call a passable experience
+                (considering it's free maybe even a good one). The app itself was well-developed, but YouTube
+                continuously changes their internal APIs breaking third-party applications like this one in one way or
+                another (songs won't play, album or artist info won't load or the search function would just stop
+                working). This leads to a constant game of cat-and-mouse that the developer maintaining such an
+                application can't possibly ever win and thus the primary dev of ViMusic abandoned it (probably being
+                exhausted and tired of the unproductive changes required to keep it running). Once several features
+                (most importantly the search) began to break, I had to look around for an alternative and luckily there
+                was a fork called
+                <a href="https://github.com/fast4x/RiMusic">RiMusic</a>
+                available that happily accepted my fixes for some broken functionality and even implemented a vast
+                majority of new features. I have to admit that due to the constant changes it isn't quite as stable as
+                ViMusic, but it allowed me to simply migrate my existing music library over and continue listening,
+                which is a fantastic thing by itself. Sadly, it's frequent bugs, the lack of an easy to use and well
+                working music recommendation/discovery feature as well as the manual sync required to listen to music on
+                my desktop have eaten up my patience and I just wanted something more convenient, which put me right
+                back at the beginning of this journey.
+            </p>
+            <p>
+                After reassessing the current music streaming options, I just have to say that the
+                <strong>whole market is an utter mess of privacy-invading anti-consumer products</strong>
+                . Despite paying a monthly fee to listen without ads (which on its own seems fair to me), all of them
+                still track your activities and engage with third-party services to exchange their collected data. Also,
+                virtually none of them provide a robust library export locking you into their ecosystem and enforcing
+                the concept of only providing a service with you as the user owning nothing - not even your curation of
+                content. The only real option to remain entirely unbound is to buy all your songs on CD or as MP3 and
+                host a streaming software on your own hardware, which is quite a bit of work, expensive and out of the
+                question for me, as I'm locking for a more convenient solution. Thus, I made a deal with the devil and
+                decided to switch to Spotify, since they make it quite easy to create an account without providing any
+                personally-identifiable information (PID) as mentioned in this
+                <a
+                    href="https://www.reddit.com/r/PrivacyGuides/comments/rvaapv/the_best_music_streaming_service_for_privacy/"
+                >
+                    Reddit thread
+                </a>
+                , the data they do gather
+                <a href="https://james.cridland.net/blog/2021/what-does-spotify-know-about-me/">seems reasonable</a>
+                , they have an excellent music recommendation algorithm and honestly most of my friends use it. Just
+                follow these steps to use it somewhat privacy-consciously:
+            </p>
+            <ul>
+                <li>
+                    Create a new account and consider using a dedicated mail address as well as spoofing your name +
+                    birthday.
+                </li>
+                <li>
+                    Don't provide any more information than absolutely required (leave the fields empty or choose
+                    <code>Prefer not to say</code>
+                    ).
+                </li>
+                <li>
+                    Don't use your credit card or even worse PayPal to pay for premium plans, instead buy a gift card in
+                    a local store (or at least in an online shop you trust) to obfuscate payment information.
+                </li>
+                <li>
+                    Go into
+                    <code>Privacy settings</code>
+                    and deactivate the
+                    <code>Tailored ads</code>
+                    as well as
+                    <code>Facebook data</code>
+                    options.
+                </li>
+                <li>
+                    Only grant the permissions absolutely necessary on your mobile devices - start with none and add
+                    those required to use needed functions as you go.
+                </li>
+            </ul>
+            <p>
+                Of course, even with these practices Spotify still isn't a perfect solution, but most if not all of
+                their data should be meaningless since it can't be correlated to your real identity. That's a fair
+                tradeoff between privacy and convenience in my mind, at least right now. With that said, I hope you
+                enjoyed reading the article, ideally it was helpful to you and we'll hear from each other next week...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
