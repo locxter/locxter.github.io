@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at using spotDL to back up your Spotify library | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at using spotDL to back up your Spotify library</h2>
+            <h3>2024-09-06</h3>
+            <p>
+                Although I still believe that my switch from RiMusic to Spotify is somewhat controversial and not
+                perfect by any stretch of the imagination, I'm starting to notice some major quality of life
+                improvements - not only in everyday use, but also when it comes to backing up my library. Until now I
+                had to manually recreate my RiMusic playlists on the desktop and download them via a third-party app
+                from YouTube Music, which was quite an effort, could be automated in theory and thus wasn't done as
+                frequently as it should have been. Luckily, an awesome project called
+                <a href="https://github.com/spotDL/spotify-downloader">spotDL</a>
+                exists that automates this hassle for all of us Spotify users, so let's take a quick look at it...
+            </p>
+            <p>
+                At your first glance, you might be extremely stocked about the fact that methods to download all user
+                playlists and/or saved albums exist, but they put all songs into s single folder and thus aren't really
+                an ideal solution. This doesn't mean that spotDL is a bad piece of software, you just have to know how
+                to do it properly with some (but very minor) human assistance:
+            </p>
+            <ul>
+                <li>
+                    Download spotDL:
+                    <code>pip3 install spotdl</code>
+                </li>
+                <li>
+                    Check for successful install:
+                    <code>python3 -m spotdl</code>
+                </li>
+                <li>
+                    Create separate folders for each playlist or album you want to back up, then:
+                    <ul>
+                        <li>Copy a link to the playlist/album from Spotify's sharing menu</li>
+                        <li>Open a terminal in this folder</li>
+                        <li>
+                            Run
+                            <code>python3 -m spotdl sync [link] --save-file [playlist/album name].sync.spotdl</code>
+                            replacing the parts in brackets with your data
+                        </li>
+                        <li>
+                            Wait for the operation to finish, this can take quite a few minutes depending on the
+                            playlist/album size
+                        </li>
+                        <li>Repeat these steps for all playlists/albums</li>
+                    </ul>
+                </li>
+                <li>
+                    To update your backup, simply run
+                    <code>python3 -m spotdl sync [playlist/album name].sync.spotdl</code>
+                    inside all folders
+                </li>
+                <li>
+                    If you encounter an error (especially related to timeouts) during the process, just try to rerun the
+                    command - it usually works on the second or third attempt
+                </li>
+            </ul>
+            <p>
+                Of course, we have to keep in mind that this application also sources its data from YouTube Music making
+                some songs, podcasts or albums not available for backup, but as a free (as in freedom) and easy to use
+                solution for backing up your library or just downloading your songs as MP3s for other uses (like DJing)
+                it's pretty amazing in my mind. With that said, have a lovely day and see you next week...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
