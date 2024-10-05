@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2024 locxter</copyright>
-        <lastBuildDate>Sat, 28 Sep 2024 00:00:00 +0200</lastBuildDate>
+        <lastBuildDate>Sat, 05 Oct 2024 00:00:00 +0200</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>A quick look at Amazon's Kindle app and its awful DRM system</title>
+            <guid>https://locxter.net/articles/a-quick-look-at-amazons-kindle-app-and-its-awful-drm-system.html</guid>
+            <link>https://locxter.net/articles/a-quick-look-at-amazons-kindle-app-and-its-awful-drm-system.html</link>
+            <pubDate>Sat, 05 Oct 2024 00:00:00 +0200</pubDate>
+        </item>
         <item>
             <title>Switching to Obsidian as my note-taking software for university</title>
             <guid>https://locxter.net/articles/switching-to-obsidian-as-my-note-taking-software-for-university.html</guid>
