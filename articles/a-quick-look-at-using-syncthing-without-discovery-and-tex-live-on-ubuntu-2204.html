@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at using Syncthing without discovery and TeX Live on Ubuntu 22.04 | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at using Syncthing without discovery and TeX Live on Ubuntu 22.04</h2>
+            <h3>2024-10-27</h3>
+            <p>
+                As I mention on my
+                <a href="../now.html">"Now" page</a>
+                , I have recently moved to Stuttgart and started studying IT Automotive, which brought a few changes in
+                my computing setup as well new requirements with it. On the one hand, I have to use the provided WiFi
+                router in my new flat, which doesn't allow Syncthing's device discovery broadcasts on port
+                <code>21027</code>
+                for whatever reason - so that needed to be fixed. On the other, I'm already in the progress of writing
+                my first small scientific essay, for which I'll use LaTeX of course - but the TeX Live Full installation
+                seems to be broken on Ubuntu for quite some time now. Lucky, I have found solutions for both of these
+                problems and want to share them without in this rather niche quick look...
+            </p>
+            <p>
+                As described on the
+                <a href="https://docs.syncthing.net/users/firewall.html">firewall setup page</a>
+                of the Syncthing documentation, you need two ports to be open for it to fully work -
+                <code>22000</code>
+                for the actual sync protocol traffic over TCP or UDP and
+                <code>21027</code>
+                for TCP-based discovery broadcast over IPv4 and multicast over IPv6. In most home situations, both of
+                these ports are open and functional, but some routers just like the trashy one I got with my flat seem
+                to block the broad-/multicasts on
+                <code>21027</code>
+                for some mysterious reason. However, this isn't the end of the world, since Syncthing works fine, just
+                fine without local discovery, if we manually tell it the addresses of all devices. To set this up,
+                simply follow these steps:
+            </p>
+            <ul>
+                <li>
+                    Assign static IP addresses for all devices syncing over Syncthing either via the interface of your
+                    router or your device settings. Generally speaking, there should be an
+                    <code>IP address</code>
+                    section, where you can change the assigned address from an automatic one via
+                    <code>DHCP</code>
+                    to a manual one.
+                </li>
+                <li>
+                    Make sure port
+                    <code>22000</code>
+                    works between all the devices by checking your firewall settings and pinging each other. If you
+                    can't get this to work, you can still edit the
+                    <code>Sync Protocol Listen Addresses</code>
+                    in the
+                    <code>Connection</code>
+                    settings of Syncthing to use another one instead.
+                </li>
+                <li>
+                    Now for every device in the Syncthing network, add all other devices manually via
+                    <code>Add Remote Device</code>
+                    and change the
+                    <code>Addresses</code>
+                    field in the
+                    <code>Advanced</code>
+                    section from
+                    <code>dynamic</code>
+                    to
+                    <code>tcp://[STATICIP]:22000, dynamic</code>
+                    . If you needed to change the port, edit it here accordingly.
+                </li>
+                <li>
+                    Once you linked all devices together, they should now be able to connect to each other just like
+                    normal and data syncing should start.
+                </li>
+            </ul>
+            <p>
+                At the risk of exaggerating a bit, I believe that the word processing software you use is the biggest
+                difference between a scientist or university student and an average employee. Sure, Word, LibreOffice
+                Writer and maybe even Pages are great programs for everyday use and simple letters or documents. But
+                once you start to add more advanced things like lots of math expressions, citations, references,
+                drawings, charts et cetera you will have a terrible time with these solutions, since they get
+                exponentially more complicated to use. LaTeX on the other hand, might be a bit more complicated to get
+                started with, but once you have your base setup dialed in, adding advanced features like circuit
+                drawings or 3D graphs isn't a big deal anymore. That's why it is so popular in the scientific community
+                and why I want to get started with it right away (especially since I got an excellent template to work
+                with from my employer). Unfortunately, the TeX Live Full installation is quite broken on Ubuntu right
+                now (
+                <code>sudo apt install texlive-full</code>
+                ) and will just stop at
+                <code>Pregenerating ConTeXt MarkIV format. This may take some time...</code>
+                without any progress in hours. Believe me or not, but according to this
+                <a href="https://askubuntu.com/a/1441819">highly trustworthy post</a>
+                on Ask Ubuntu and my personal experience, the solution simply is to regularly hit
+                <code>Enter</code>
+                until the installation succeeds. A highly professional solution, isn't it?
+            </p>
+            <p>
+                With that said, I hope this rather niche one was helpful to you or if it wasn't you at least enjoyed
+                wasting your time with it
+                <code>:)</code>
+                . As always, feel free to share your thoughts and experiences in the comments down below and have a
+                lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
