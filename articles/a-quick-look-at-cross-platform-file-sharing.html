@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at cross-platform file sharing | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at cross-platform file sharing</h2>
+            <h3>2024-12-08</h3>
+            <p>
+                I hate to admit it, but especially in everyday situations where you need to quickly share files between
+                devices, proprietary features like Apple's AirDrop can be really handy. Luckily, even for those of us
+                who are not willing to afford Apple devices or have to deal with different ecosystems, some easy-to-use
+                and free solutions for instantaneous file sharing via the local network exist. So, let's take a quick
+                look at my favorite two of them - Snapdrop and LocalSend...
+            </p>
+            <p>
+                First and foremost, we should be on the same page about the working principle and thus use-case for
+                these solutions. Unlike with big cloud providers, you don't upload your files to a centralized server,
+                which then distributes the file to new devices - instead your devices connect locally from peer to peer
+                and transfer the data this way. This allows you to instantly share files without much preparation or
+                delays from first having to upload the data, but also means that it is quite inefficient for big files
+                or sharing data with many devices. For such use-cases, you're still clearly better off with using a
+                centralized file sharing solution of your choice. Nonetheless, this approach is ideal for quickly moving
+                files between devices on the go and certainly has a right to exist.
+            </p>
+            <p>
+                Unfortunately, none of the popular proprietary solutions like AirDrop or Google's NearbyShare (now also
+                called QuickShare) is available across all platforms - making it only useful for certain types of OS
+                combinations. Thankfully, the open source community has stepped in and created many wonderful solutions
+                that truly work across all common platforms and are also free to use. Probably the most well-known of
+                them is
+                <a href="https://snapdrop.net">Snapdrop</a>
+                - a website you open on two or more devices in the same network and that transfers files between them
+                peer to peer without any software installation. This is really handy, since it works in every browser
+                with support for WebRTC - but also limits its feature set a bit and can be buggy depending on the
+                browser combination used. This is where
+                <a href="https://localsend.org/">LocalSend</a>
+                steps in and offers an equally flexible as well as easy-to-use solution that certainly works since it
+                uses dedicated apps on all platforms to transfer the data. It again uses WebRTC under the hood and thus
+                makes sure to encrypt your data, but also goes a step further featurewise. For example, it offers you
+                the ability to mark devices as favorites and shows you a progress bar for big files - both of which
+                Snapdrop lacks.
+            </p>
+            <p>
+                So the next time you need to move files between devices, certainly make sure to give one or both of
+                these solutions a go - you might even be able to impress some Apple users with an equally nice solutions
+                that doesn't come from Cupertino. With that said, feel free to share your thoughts, experiences and
+                recommendations in the comments down below, have a lovely day and until next week...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2024 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
