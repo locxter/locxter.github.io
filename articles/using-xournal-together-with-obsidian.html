@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>| locxter.net</title>
+        <title>Using Xournal++ together with Obsidian | locxter.net</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="author" content="locxter" />
@@ -21,13 +21,101 @@
             </nav>
         </header>
         <main>
-            <h2></h2>
-            <h3>2025-</h3>
-            <p></p>
-            <figure>
-                <img src="../images/articles/" alt="" />
-                <figcaption></figcaption>
-            </figure>
+            <h2>Using Xournal++ together with Obsidian</h2>
+            <h3>2025-01-05</h3>
+            <p>
+                I have already talked quite a bit about Obsidian being my note-taking software of choice for university
+                and still absolutely stand by it. However, I'm also actively experimenting with it and try to optimize
+                it resulting in some changes of my setup over time. In this one, I want to introduce you to using
+                Xournal++ together with Obsidian for an even better handwriting experience...
+            </p>
+            <p>
+                First and foremost, we should talk about why I even feel the need to change something about my current
+                solution of using the popular Excalidraw plugin. Honestly, it mostly comes down to the poor performance
+                I and everyone else I know experience while using it in everyday situations. These issues primarily
+                occur when working with lots of images, which you unfortunately have to do quite often as the PDF import
+                is build around converting every page to an image (which also takes ages). Far worse than these import
+                times is the laggy performance while drawing however, which can make it borderline unusable in a
+                document with many images, and the abysmally slow preview generation when embedding such a file into a
+                note. Some minor things like the missing ability to properly export a drawing as a PDF file are just the
+                cherry on top of the cake and unfortunately make for a not very satisfying user experience overall.
+            </p>
+            <p>
+                Thus, I was especially happy to find a well-working
+                <a href="https://obsidian.md/plugins?id=xournalpp">Xournal++ plugin</a>
+                for Obsidian that allows me to pretty seamlessly integrate my favourite handwriting application on Linux
+                into my favourite note-taking software. What it does is basically enabling Obsidian to show Xournal++
+                files in the tree view, automatically convert them to PDF documents that can be easily integrated into
+                your notes as well as to provide several easy options to open a drawing in Xournal++ for editing.
+                However, this approach is a bit more involved since it requires two programs working together, so here's
+                how to properly set everything up:
+            </p>
+            <ul>
+                <li>
+                    Install the
+                    <a href="https://obsidian.md/plugins?id=xournalpp">Xournal++ plugin</a>
+                </li>
+                <li>
+                    If Obsidian is installed via Flatpak, allow it the permission to execute Xournal++:
+                    <ul>
+                        <li>Grant Obsidian access to the D-Bus via Flatseal</li>
+                        <li>
+                            Under the
+                            <code>Xournal++ installation path</code>
+                            setting enter
+                            <code>flatpak-spawn --host xournalpp</code>
+                            , if Xournal++ is installed from your distributions repositories, or
+                            <code>flatpak-spawn --host flatpak run com.github.xournalpp.xournalpp</code>
+                            , if Xournal++ is also installed via Flatpak
+                        </li>
+                        <li>
+                            For further guidance, see
+                            <a href="https://github.com/jonjampen/obsidian-xournalpp/blob/master/docs/path.md">
+                                https://github.com/jonjampen/obsidian-xournalpp/blob/master/docs/path.md
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Turn on the
+                    <code>Auto export Xournal++ files</code>
+                    setting for a better experience, if your computer is relatively fast (manual updates are still
+                    possible)
+                </li>
+                <li>
+                    Customize the used template by creating a regular
+                    <code>.xopp</code>
+                    file to your liking and placing its relative path in the
+                    <code>Xournal++ template path</code>
+                    setting (I simply place mine in the vault's root and hide it by putting a dot at the filename start,
+                    e.g.
+                    <code>.xournalpp-template.xopp</code>
+                    )
+                </li>
+                <li>Finally, consider setting Xournal++ as your default app to open PDFs with in Obsidian</li>
+            </ul>
+            <p>The workflow of using it for everyday drawings and PDF annotations then looks like this:</p>
+            <ul>
+                <li>
+                    Either create a new drawing from one of the many buttons or via the command pallet in Obsidian, edit
+                    it in Xournal++ and then embed the generated PDF into your notes - you can always further edit it in
+                    Xournal++ and it will be automatically updated
+                </li>
+                <li>
+                    Or select a PDF file you want to annotate in the tree view, click
+                    <code>Open in default app</code>
+                    , annotate it in the Xournal++ window that opened and save it with a different name (I usually
+                    append
+                    <code>annotated</code>
+                    to the existing name) - it should now appear in Obsidian just like any other Xournal++ file and you
+                    can further edit it as usual
+                </li>
+            </ul>
+            <p>
+                With that said, I hope you found this one interesting and maybe even useful in case you also use
+                Obsidian for note-taking. As always, feel free to share thoughts and experiences in the comments down
+                below and have a lovely day...
+            </p>
             <script
                 src="https://giscus.app/client.js"
                 data-repo="locxter/locxter.github.io"
