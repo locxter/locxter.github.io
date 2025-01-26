@@ -6,8 +6,14 @@
         <description>Articles from locxter's small space on the web.</description>
         <language>en</language>
         <copyright>2022 - 2025 locxter</copyright>
-        <lastBuildDate>Sun, 19 Jan 2025 00:00:00 +0100</lastBuildDate>
+        <lastBuildDate>Sun, 26 Jan 2025 00:00:00 +0100</lastBuildDate>
         <atom:link href="https://locxter.net/rss/articles.xml" rel="self" type="application/rss+xml" />
+        <item>
+            <title>Time management is a truly crucial skill</title>
+            <link>https://locxter.net/articles/time-management-is-a-truly-crucial-skill.html</link>
+            <guid>https://locxter.net/articles/time-management-is-a-truly-crucial-skill.html</guid>
+            <pubDate>Sun, 26 Jan 2025 00:00:00 +0100</pubDate>
+        </item>
         <item>
             <title>On the constant struggle between privacy and usability</title>
             <link>https://locxter.net/articles/on-the-constant-struggle-between-privacy-and-usability.html</link>
