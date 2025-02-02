@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at installing MATLAB under Linux | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at installing MATLAB under Linux</h2>
+            <h3>2025-02-02</h3>
+            <p>
+                This week has been quite busy, so let's just take a quick look at one of the rather unique things I had
+                to do during it - installing MATLAB under Linux...
+            </p>
+            <p>
+                After raging a bit about the fact that there is no proper way of installing it via any package manager
+                (even snap would have been fine for me), I firstly went on to visit the
+                <a href="https://de.mathworks.com/products/matlab.html">MathWorks website</a>
+                and create a student account for a free license. Once that is done the
+                <a href="https://www.mathworks.com/help/install/ug/install-products-with-internet-connection.html">
+                    official instructions
+                </a>
+                simply want you to download a compressed
+                <code>.zip</code>
+                folder, extract it and basically run with that - but that's obviously too clunky for me as proper
+                high-performer ;)
+            </p>
+            <p>Here's how to install it properly or at least make the best out of the mess we have to deal with:</p>
+            <ul>
+                <li>
+                    Extract the
+                    <code>.zip</code>
+                    file to a
+                    <code>/.FILENAME</code>
+                    folder in your home directory
+                </li>
+                <li>
+                    Open a terminal inside that folder and run the installation script with admin privileges via
+                    <code>sudo -H ./install</code>
+                </li>
+                <li>
+                    Simply run through the installation process leaving all the defaults as they are, but ...
+                    <ul>
+                        <li>
+                            ... write down the installation folder (
+                            <code>/usr/local/MATLAB/R2024b</code>
+                            for me)
+                        </li>
+                        <li>... install all necessary modules (just MATLAB and Simulink for me)</li>
+                        <li>
+                            ... choose to create symbolic links in the default folder (
+                            <code>/usr/local/bin</code>
+                            for me)
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Then we need to integrate MATLAB into our desktop environment via the
+                    <code>matlab-support</code>
+                    package:
+                    <ul>
+                        <li>
+                            Install it via
+                            <code>sudo apt install matlab-support</code>
+                        </li>
+                        <li>Check that the installation folder matches the actual one</li>
+                        <li>Specify authorized users if needed</li>
+                        <li>
+                            Maybe rename MATLAB's GCC libraries if they cause any conflicts (they haven't for me so far)
+                        </li>
+                    </ul>
+                </li>
+                <li>And now you're done with just setting up the basic MATLAB experience</li>
+                <li>
+                    If you like dark mode just as much as I do, you might also want to install the
+                    <code>New Desktop for MATLAB Tech Preview</code>
+                    add-on and enable the dark UI under
+                    <code>Preferences/Appearance</code>
+                    - but keep in mind that it still is a preview and might cause instabilities
+                </li>
+            </ul>
+            <p>
+                With that said, I truly hope you never have to use this software though, since it seems really messy and
+                over-grown like a tumor in my limited experience. As always, feel free to share your thoughts and
+                experiences in the comments down below and have a lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2025 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
