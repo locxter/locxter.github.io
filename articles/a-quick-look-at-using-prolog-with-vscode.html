@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A quick look at using Prolog with VSCode | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>A quick look at using Prolog with VSCode</h2>
+            <h3>2025-02-09</h3>
+            <p>
+                Today's article is another one born from my practical needs to install a rather obscure piece of
+                software for university and work my way around a few obstacles. This time we are talking about locally
+                installing a modern Prolog interpreter and integrating it with VSCode for a nice development environment
+                (a similar IntelliJ plugin sadly isn't available anymore)...
+            </p>
+            <p>
+                If you need Prolog, you probably already know what it is used for, but just in case you got here out of
+                curiosity here's a quick a introduction. Prolog is a logic programming language, meaning that as a
+                subset of declarative programming languages it differs quite a bit from our popular imperative
+                programming languages and focuses more on the What instead of the How. This means that a programmer
+                mostly has to provide an exact description of the problem to solve and the system will resolve it
+                automatically. This can be rather perplexing for our programmer brains that are mostly used to
+                imperative C-like languages - especially if you had nothing to do in the past with the principles of
+                first-order logic it is based on.
+            </p>
+            <p>Whatever it might be, here's how to install and get it running:</p>
+            <ul>
+                <li>
+                    irst you have to install a modern version of the free SWI-Prolog distribution either via your
+                    distribution's package manager (e.g.
+                    <code>sudo apt install swi-prolog</code>
+                    on Debian-based systems) or the
+                    <a href="https://www.swi-prolog.org/Download.html">official website</a>
+                    , if you are on Windows.
+                </li>
+                <li>
+                    Once that is done and you already have a modern version of VSCode (or its free VSCodium
+                    distribution) running, search for the
+                    <a href="https://marketplace.visualstudio.com/items?itemName=AmauryRabouan.new-vsc-prolog">
+                        New-VSC-Prolog plugin
+                    </a>
+                    in the
+                    <code>Extensions</code>
+                    tab and install it. Alternatively, this can be done via the command line via
+                    <code>code --install-extension amauryrabouan.new-vsc-prolog</code>
+                    (or
+                    <code>codium</code>
+                    respectively), at least here on my Linux system.
+                </li>
+                <li>
+                    Now you can create a new folder with a
+                    <code>.pl</code>
+                    file in it and start writing your first Prolog program. Executing it is as simple as hitting
+                    <code>Alt-X</code>
+                    and then
+                    <code>L</code>
+                    or executing the
+                    <code>Prolog: load document</code>
+                    command from the command pallet.
+                </li>
+            </ul>
+            <p>Since that was so fun, here are a few more helpful notes for using it:</p>
+            <ul>
+                <li>
+                    If you are on Windows and encounter an error message instead of executing your program, you might
+                    have to manually set the
+                    <code>Exectubale Path</code>
+                    in the extension settings to your installation location (usually
+                    <code>C:\Progam Files\swipl\bin\swipl.exe</code>
+                    ).
+                </li>
+                <li>
+                    To exit the interpreter, simply hit
+                    <code>Ctrl-C</code>
+                    and then
+                    <code>E</code>
+                    .
+                </li>
+                <li>
+                    At least on Unix systems, you can clear the screen via the
+                    <code>tty_clear.</code>
+                    command.
+                </li>
+                <li>
+                    To see the next line of a multi-line answer, simply hit
+                    <code>N</code>
+                    (
+                    <code>Enter </code>
+                    will just end this query ahead of completion).
+                </li>
+                <li>
+                    It is absolutely normal to see a final
+                    <code>false</code>
+                    on a multi-line answer as it indicates the end of all solutions - no need to worry.
+                </li>
+            </ul>
+            <p>
+                Just like last week with MATLAB, I truly hope you never have to use this software though, since it is
+                mostly an esoteric language with rather limited real-world use and can be quite a source of headaches.
+                But as always, feel free to share your thoughts and experiences in the comments down below and have a
+                lovely day...
+            </p>
+            <script
+                src="https://giscus.app/client.js"
+                data-repo="locxter/locxter.github.io"
+                data-repo-id="R_kgDOIeICfw"
+                data-category="Comments"
+                data-category-id="DIC_kwDOIeICf84CSqm1"
+                data-mapping="title"
+                data-strict="1"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="transparent_dark"
+                data-lang="en"
+                data-loading="lazy"
+                crossorigin="anonymous"
+                async
+            ></script>
+            <p>
+                <a href="../rss/articles.xml">RSS feed</a>
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2025 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+    </body>
+</html>
