@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Grade calculator | locxter.net</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="locxter" />
+        <meta name="description" content="This is locxter's small space on the web." />
+        <link rel="stylesheet" href="../styles/dark.min.css" />
+        <link rel="alternate" type="application/rss+xml" title="RSS feed" href="../rss/articles.xml" />
+    </head>
+    <body>
+        <header>
+            <h1>locxter.net</h1>
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="../articles.html">Articles</a>
+                <a href="../tools.html">Tools</a>
+                <a href="../portfolio.html">Portfolio</a>
+                <a href="../about-me.html">About me</a>
+                <a href="../now.html">Now</a>
+            </nav>
+        </header>
+        <main>
+            <h2>Grade calculator</h2>
+            <p>
+                <label for="max-points">Max. points:</label>
+                <br />
+                <input type="number" id="max-points" min="0" value="90" />
+            </p>
+            <p>
+                <label for="achieved-points">Achieved points:</label>
+                <br />
+                <input type="number" id="achieved-points" min="0" value="90" />
+            </p>
+            <p>
+                <label for="grade">Grade:</label>
+                <br />
+                <input type="number" id="grade" min="1" step="0.1" value="1.0" readonly />
+            </p>
+            <p>
+                <button id="calculate">Calculate</button>
+            </p>
+            <h3>Settings</h3>
+            <p>
+                <label for="direction">Direction:</label>
+                <br />
+                <select id="direction">
+                    <option value="points-to-grade" selected>From points to grade</option>
+                    <option value="grade-to-points">From grade to points</option>
+                </select>
+            </p>
+            <p>
+                <label for="rounding-style">Rounding style:</label>
+                <br />
+                <select id="rounding-style">
+                    <option value="cut" selected>Cut off</option>
+                    <option value="round">Round mathematically</option>
+                    <option value="ceil">Ceil</option>
+                </select>
+            </p>
+            <p>
+                <label for="decimal-places">Decimal places (only displayed if needed):</label>
+                <br />
+                <input type="number" id="decimal-places" min="1" max="4" value="1" />
+            </p>
+        </main>
+        <footer>
+            <p>2022 - 2025 locxter</p>
+            <p>
+                <a href="../impressum.html">Impressum</a>
+                <a href="../datenschutzerklaerung.html">Datenschutzerklärung</a>
+            </p>
+        </footer>
+        <script src="../scripts/tools/grade-calculator.js"></script>
+    </body>
+</html>
