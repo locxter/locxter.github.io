@@ -2,7 +2,7 @@
 
 // DOM references
 let availabilityInput = document.getElementById('availability');
-let floosrInput = document.getElementById('floors');
+let floorsInput = document.getElementById('floors');
 let areasInput = document.getElementById('areas');
 let findRoomButton = document.getElementById('find-room');
 let roomTable = document.getElementById('room-table');
@@ -392,11 +392,19 @@ const ROOMS = {
         url: 'rapla.dhbw.de/rapla/calendar?key=9TlvoFG0Qam4ia65PD6_Iy3lqAFNTXJWKXIkOFH_Wpc7OGetMCesGkE9r3m6WlIFqYO_7OkRsvGkGyRGDyz3_hXywblAnh3DM6CFYHxm8TARd1RDkR4S6PTUzPKR67_xOf6iz2Lu4wf7tXEbVnYfihZUgc9ZiFSEQ3hv-lbPkrQ&salt=-1916867539&allocatable_id=r6fa6a55-2300-4661-b11a-dbf56135b693',
     },
 };
-const TODAY_STRING = new Intl.DateTimeFormat('de-DE', {
+const DATE_FORMATTER = new Intl.DateTimeFormat('de-DE', {
     timeZone: 'Europe/Berlin',
+    year: 'numeric',
     day: '2-digit',
     month: '2-digit',
-}).format(new Date());
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hourCycle: 'h23',
+});
+const MINUTES_PER_BLOCK = 15;
+const MINUTES_PER_DAY = 24 * 60;
+const FETCH_BATCH_SIZE = 6;
 const ROOM_TABLE_HEADER = `
 <tr>
     <th colspan="8">Room:</th>
@@ -428,81 +436,214 @@ const ROOM_TABLE_HEADER = `
 `;
 
 // Some global variables
-let rooms = [];
+// Each room contains its metadata and blockedTimes, measured in minutes after midnight.
+let rooms = {};
+let roomsDate = '';
 
-function fetchRooms() {}
+// Use Stuttgart's date and time even when the visitor is in a different time zone.
+function getCurrentTime() {
+    const parts = Object.fromEntries(DATE_FORMATTER.formatToParts(new Date()).map((part) => [part.type, part.value]));
+    return {
+        date: `${parts.year}-${parts.month}-${parts.day}`,
+        dateString: `${parts.day}.${parts.month}.`,
+        minutes: Number(parts.hour) * 60 + Number(parts.minute) + Number(parts.second) / 60,
+    };
+}
 
-function filterRooms() {}
+// Extract only the bookings in today's column of a Rapla weekly calendar.
+function parseBlockedTimes(html, dateString) {
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const table = doc.querySelector('.week_table');
+    if (!table) {
+        throw new Error('The Rapla page does not contain a weekly calendar');
+    }
 
-function visualizeRooms() {
+    const weekdays = [...table.querySelectorAll('.week_header')];
+    const dayIndex = weekdays.findIndex((weekday) => weekday.textContent.match(/\b\d{2}\.\d{2}\./)?.[0] === dateString);
+    if (dayIndex === -1) {
+        throw new Error(`The Rapla calendar does not contain ${dateString}`);
+    }
+
+    const blockedTimes = [];
+    for (const row of table.rows) {
+        let currentDay = 0;
+        for (const cell of row.cells) {
+            // Full separators end a day; small separators can also split overlapping bookings within a day.
+            if (cell.classList.contains('week_separatorcell') || cell.classList.contains('week_separatorcell_black')) {
+                currentDay++;
+                continue;
+            }
+            if (currentDay !== dayIndex || !cell.classList.contains('week_block')) {
+                continue;
+            }
+
+            const bookings = [...cell.querySelectorAll(':scope > a')];
+            if (bookings.length === 0) {
+                throw new Error('A Rapla booking has no readable time range');
+            }
+            for (const booking of bookings) {
+                const time = booking.textContent.match(/^\s*(\d{1,2}):(\d{2})\s*[-–]\s*(\d{1,2}):(\d{2})/);
+                if (!time) {
+                    throw new Error('A Rapla booking has no readable time range');
+                }
+                const begin = Number(time[1]) * 60 + Number(time[2]);
+                const end = Number(time[3]) * 60 + Number(time[4]);
+                if (Number(time[2]) >= 60 || Number(time[4]) >= 60 || begin >= end || end > MINUTES_PER_DAY) {
+                    throw new Error('A Rapla booking has an invalid time range');
+                }
+                blockedTimes.push({ begin, end });
+            }
+        }
+    }
+    return blockedTimes.sort((a, b) => a.begin - b.begin || a.end - b.end);
+}
+
+// Fetch in small batches so the proxy does not have to serve every room at once.
+async function fetchRooms() {
+    const today = getCurrentTime();
+    const roomEntries = Object.entries(ROOMS);
+    const fetchedRooms = {};
+    const failedRooms = [];
+
+    for (let offset = 0; offset < roomEntries.length; offset += FETCH_BATCH_SIZE) {
+        await Promise.all(
+            roomEntries.slice(offset, offset + FETCH_BATCH_SIZE).map(async ([id, room]) => {
+                try {
+                    // Public calendars also work for the rooms whose lookup uses internal_calendar.
+                    const url = CORSPROXY_PREFIX + room.url.replace('/internal_calendar?', '/calendar?');
+                    const response = await fetch(url, { signal: AbortSignal.timeout(30000) });
+                    if (!response.ok) {
+                        throw new Error(`Rapla returned HTTP ${response.status}`);
+                    }
+                    const blockedTimes = parseBlockedTimes(await response.text(), today.dateString);
+                    fetchedRooms[id] = { ...room, blockedTimes };
+                } catch (error) {
+                    failedRooms.push(room.name);
+                    console.error(`Could not load ${room.name}`, error);
+                }
+            }),
+        );
+    }
+
+    // Replace old results, including rooms whose latest request failed.
+    rooms = fetchedRooms;
+    roomsDate = today.date;
+    if (getCurrentTime().date !== roomsDate) {
+        rooms = {};
+        throw new Error('The date changed while loading the rooms. Please try again');
+    }
+    if (failedRooms.length > 0) {
+        throw new Error(
+            `Could not load availability for: ${failedRooms.join(', ')}. These rooms are omitted. Please try again`,
+        );
+    }
+    return rooms;
+}
+
+// General today shows every loaded room; the hourly options require uninterrupted availability from now.
+function filterRooms() {
+    const availability = availabilityInput.value;
+    const floor = floorsInput.value;
+    const area = areasInput.value;
+    if (
+        !Object.values(AVAILABILITY).includes(availability) ||
+        !Object.values(FLOORS).includes(floor) ||
+        !Object.values(AREAS).includes(area)
+    ) {
+        throw new Error('Select a valid availability, floor, and area');
+    }
+
+    const now = getCurrentTime();
+    const hours = availability === AVAILABILITY.GENERAL_TODAY ? 0 : Number(availability.split('-')[1]);
+    const end = now.minutes + hours * 60;
+    // Today's calendar cannot establish availability beyond midnight.
+    if (roomsDate !== now.date || (hours > 0 && end > MINUTES_PER_DAY)) {
+        return [];
+    }
+
+    const selectedFloor = floor === FLOORS.ALL_FLOORS ? null : Number(floor.split('-')[1]);
+    const selectedArea = area === AREAS.ALL_AREAS ? null : area.split('-')[1].toUpperCase();
+    return Object.values(rooms).filter((room) => {
+        if (selectedFloor !== null && room.floor !== selectedFloor) {
+            return false;
+        }
+        if (selectedArea !== null && room.area !== selectedArea) {
+            return false;
+        }
+        return hours === 0 || !room.blockedTimes.some((time) => time.begin < end && time.end > now.minutes);
+    });
+}
+
+// Format minutes after midnight as a zero-padded HH:MM time.
+function formatTime(minutes) {
+    return `${String(Math.floor(minutes / 60)).padStart(2, '0')}:${String(minutes % 60).padStart(2, '0')}`;
+}
+
+// Show a loading or error message spanning the table beneath its time header.
+function showTableMessage(message) {
+    roomTable.innerHTML = ROOM_TABLE_HEADER;
+    const row = roomTable.insertRow();
+    const cell = row.insertCell();
+    cell.colSpan = 104;
+    cell.textContent = message;
+}
+
+// Render rooms ordered by floor, area, and number with colored 15-minute availability cells.
+function visualizeRooms(filteredRooms = filterRooms()) {
+    roomTable.innerHTML = ROOM_TABLE_HEADER;
     // Fail fast with empty data
-    if (rooms.length == 0) {
-        roomTable.innerHTML =
-            ROOM_TABLE_HEADER +
-            `\n
-            <tr>
-                <td colspan="8">None</td>
-                <td colspan="96"></td>
-            </tr>
-        `;
+    if (filteredRooms.length === 0) {
+        showTableMessage('None');
         return;
+    }
+
+    const sortedRooms = [...filteredRooms].sort(
+        (a, b) => a.floor - b.floor || a.area.localeCompare(b.area) || a.number - b.number,
+    );
+    for (const room of sortedRooms) {
+        const row = roomTable.insertRow();
+        const nameCell = row.insertCell();
+        nameCell.colSpan = 8;
+        nameCell.textContent = room.name;
+
+        for (let begin = 0; begin < MINUTES_PER_DAY; begin += MINUTES_PER_BLOCK) {
+            const end = begin + MINUTES_PER_BLOCK;
+            // Any overlap blocks the whole 15-minute cell, including non-quarter-hour bookings.
+            const blocked = room.blockedTimes.some((time) => time.begin < end && time.end > begin);
+            const cell = row.insertCell();
+            cell.style.padding = '0';
+            cell.style.backgroundColor = blocked ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 255, 0, 0.5)';
+            cell.title = `${room.name}: ${formatTime(begin)} - ${formatTime(end)} (${blocked ? 'Blocked' : 'Available'})`;
+            cell.setAttribute('aria-label', cell.title);
+        }
     }
 }
 
-// Handle initialization on load (query all rooms)
-window.addEventListener('load', () => {
+// Load fresh bookings before applying the current selections.
+async function updateRooms() {
+    if (findRoomButton.disabled) {
+        return;
+    }
+    findRoomButton.disabled = true;
+    findRoomButton.textContent = 'Loading rooms...';
+    showTableMessage('Loading room availability...');
     try {
-        fetchRooms();
+        await fetchRooms();
+        visualizeRooms(filterRooms());
     } catch (error) {
+        if (Object.keys(rooms).length > 0 && roomsDate === getCurrentTime().date) {
+            visualizeRooms(filterRooms());
+        } else {
+            showTableMessage('Room availability could not be loaded. Please try again');
+        }
         alert(error);
         console.error(error);
+    } finally {
+        findRoomButton.disabled = false;
+        findRoomButton.textContent = 'Find room';
     }
-});
-// Handle find room button (filter and visualize rooms)
-findRoomButton.addEventListener('click', () => {
-    try {
-        filterRooms();
-        visualizeRooms();
-    } catch (error) {
-        alert(error);
-        console.error(error);
-    }
-});
+}
 
-// Fetch the HTML of the product page
-fetch(CORSPROXY_PREFIX + ROOMS.C205.url)
-    .then((response) => response.text())
-    .then((html) => {
-        // Parse the HTML with the DOM
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-
-        console.log(html);
-
-        console.log(doc);
-
-        // Extract the product title
-        const weekdays = [...doc.querySelectorAll('.week_header')];
-        const blocks = [...doc.querySelectorAll('.week_block > a')];
-
-        console.log(weekdays);
-
-        console.log(blocks);
-
-        const dates = weekdays.map((weekday) => weekday.textContent.substring(3, 9));
-        const times = blocks.map((block) => ({
-            ['begin']: block.textContent.substring(0, 5),
-            ['end']: block.textContent.substring(7, 12),
-        }));
-
-        console.log(dates);
-
-        let index = dates.indexOf(TODAY_STRING);
-
-        console.log(index);
-
-        let smallspaceSeparatorCount = index + 1;
-
-        console.log(smallspaceSeparatorCount);
-
-        console.log(times);
-    });
+// Handle initialization on load and subsequent room searches.
+window.addEventListener('load', updateRooms);
+findRoomButton.addEventListener('click', updateRooms);
